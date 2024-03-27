@@ -1,0 +1,1776 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[    101985,       1768]
+NotebookOptionsPosition[     97236,       1687]
+NotebookOutlinePosition[     97731,       1705]
+CellTagsIndexPosition[     97688,       1702]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["What shall we do with the drunken sailor?", "Title",
+ CellChangeTimes->{{3.5141055006186132`*^9, 3.514105501991827*^9}, {
+  3.5141063304759636`*^9, 
+  3.514106345654958*^9}},ExpressionUUID->"258f8450-b8f9-4b11-99d4-\
+4e5df88f93ed"],
+
+Cell[CellGroupData[{
+
+Cell["Jon McLoone", "Chapter",
+ CellID->71,ExpressionUUID->"78a13e36-6dca-49a7-9b95-87f8bc1183e9"],
+
+Cell["\<\
+Back in 1988 when Mathematica was just a year old, and no-one in my \
+university had heard of it, I was forced to learn FORTRAN. 
+
+My end of term project was this problem: \[OpenCurlyDoubleQuote]A drunken \
+sailor returns to his ship via a plank 15 paces long and 7 paces wide. With \
+each step he has equal chance of stepping forward, left, right, or standing \
+still. What is the probability that he returns safely to his ship?\
+\[CloseCurlyDoubleQuote]. I wrote a page or so of ugly code, passed the \
+course and never wrote FORTAN again. Today I thought I would revisit the \
+problem.\
+\>", "Text",
+ CellChangeTimes->{{3.5140360328505025`*^9, 3.514036043675585*^9}, {
+   3.5141006595432353`*^9, 3.514100688200101*^9}, {3.5141007311223927`*^9, 
+   3.514100734890769*^9}, {3.514100804845764*^9, 3.514100969292207*^9}, 
+   3.514101023177932*^9, {3.5141035728595424`*^9, 
+   3.514103573316588*^9}},ExpressionUUID->"b8af7b0c-ad78-49bd-8003-\
+ab6c8bc091c2"],
+
+Cell[BoxData[
+ StyleBox[
+  GraphicsBox[{{}, {}, 
+    {Hue[0.67, 0.6, 0.6], LineBox[CompressedData["
+1:eJyd0TEKg0AQBdAh1ZRbbJHCwkiQILJ4A/cCaTyCYO3VPYIJOoUfhplVkM/j
+/10EX/M6LQ8i+v7efx5PyEdu49WUr2YlsS/dW0mKS7/bcoTzYrkf/YS9mMHB
+cDTszQrO33Vw7mvY186ewVTYixvwW7H8L6+t+8Qt+KOYDYfC/u6+OzOCsWfF
+PezF0TDuxQn2Sem9HvIOlRQ7Lg==
+      "]]}},
+   AspectRatio->NCache[
+     Rational[15, 8], 1.875],
+   Axes->True,
+   AxesOrigin->{0, 1.},
+   Frame->True,
+   PlotRange->{{0, 8}, {1, 16}},
+   PlotRangeClipping->True,
+   PlotRangePadding->{Automatic, Automatic},
+   Prolog->{
+     RGBColor[0.87, 0.94, 1], 
+     RectangleBox[{0, 0}, {0.5, 16}], 
+     RectangleBox[{7.5, 0}, {8, 16}]}],
+  "CacheData" -> {
+   "Type" -> "JSON", "Data" -> 
+    "{\"name\":\"HTMLViewer\",\"data\":\"\",\"jslinks\":[],\"jsscripts\":[\"\
+console.log(\\\"Loading JSONGraphics.js....\\\");\\n    function \
+initGraphics(theData) {\\n        \\\"use strict\\\";\\n        var data = \
+(theData instanceof Array) ? theData : [theData];\\n        function \
+process(graphicsUtils) {\\n            console.log(\\\"JSONGraphics resources \
+loaded....\\\");\\n            var i, len = data.length, graphicData, \
+primData, parent;\\n            for (i = 0; i < len; i++) {\\n                \
+graphicData = data[i];\\n                primData = \
+$.parseJSON(graphicData.primData);\\n                parent = \
+graphicData.fragment;\\n                graphicsUtils.parse(primData, parent, \
+graphicData.debug, graphicData.originalExpression, graphicData);\\n           \
+ }\\n        }\\n        if (window.graphics2DUtils) {\\n            \
+process(window.graphics2DUtils);\\n        } else {\\n            try {\\n    \
+        require([\\\"graphics/2d/util\\\"], function (graphicsUtils) {\\n     \
+           process(graphicsUtils);\\n            });\\n        } catch (e) \
+{\\n            console.log(\\\"require loading error in \
+JSONGraphics.js\\\");\\n            console.log(e);\\n        }\\n    \
+}\\n}\\n\\nconsole.log(\\\"Registering 2D JSON Graphics init function with \
+HTMLViewer\\\");\\n\\nif (typeof HTMLViewer === \\\"object\\\") {\\n    if \
+(typeof HTMLViewer.register === \\\"function\\\") {\\n        \
+HTMLViewer.register(\\\"initGraphics\\\", initGraphics);\\n    \
+}\\n}\"],\"setupdata\":{\"primData\":\"{\\\"width\\\":240.0,\\\"type\\\":\\\"\
+Graphics\\\",\\\"offset\\\":[-66.0,-5.0],\\\"primitives\\\":[{\\\"transform\\\
+\":[1.0,0.0,0.0,1.0,0.0,0.0],\\\"type\\\":\\\"clip\\\",\\\"path\\\":[[82,11],[\
+82,421],[302,421],[302,11]]},{\\\"type\\\":\\\"Polygon\\\",\\\"faceForm\\\":{\
+\\\"color\\\":[221.848,239.7,255],\\\"opacity\\\":1},\\\"edgeForm\\\":{\\\"\
+color\\\":[221.848,239.7,255],\\\"capForm\\\":\\\"Square\\\",\\\"opacity\\\":\
+1,\\\"thickness\\\":[],\\\"joinForm\\\":{\\\"type\\\":\\\"Miter\\\",\\\"d\\\":\
+3.23931},\\\"dashing\\\":[]},\\\"antialiased\\\":false,\\\"fillrule\\\":\\\"\
+EvenOdd\\\",\\\"points\\\":[[83,448.333],[83,11],[96.6667,11],[96.6667,448.\
+333]]},{\\\"type\\\":\\\"Polygon\\\",\\\"faceForm\\\":{\\\"color\\\":[221.848,\
+239.7,255],\\\"opacity\\\":1},\\\"edgeForm\\\":{\\\"color\\\":[221.848,239.7,\
+255],\\\"capForm\\\":\\\"Square\\\",\\\"opacity\\\":1,\\\"thickness\\\":[],\\\
+\"joinForm\\\":{\\\"type\\\":\\\"Miter\\\",\\\"d\\\":3.23931},\\\"dashing\\\":\
+[]},\\\"antialiased\\\":false,\\\"fillrule\\\":\\\"EvenOdd\\\",\\\"points\\\":\
+[[288,448.333],[288,11],[301.667,11],[301.667,448.333]]},{\\\"transform\\\":[\
+1.0,0.0,0.0,1.0,0.0,0.0],\\\"type\\\":\\\"clip\\\",\\\"path\\\":[[82,11],[82,\
+421],[302,421],[302,11]]},{\\\"points\\\":[[192.333,421],[192.333,393.667],[\
+192.333,366.333],[165,366.333],[192.333,366.333],[192.333,366.333],[165,366.\
+333],[192.333,366.333],[165,366.333],[165,366.333],[137.667,366.333],[137.667,\
+339],[110.333,339],[137.667,339],[165,339],[165,339],[165,311.667],[137.667,\
+311.667],[110.333,311.667],[110.333,284.333],[137.667,284.333],[165,284.333],[\
+192.333,284.333],[192.333,284.333],[219.667,284.333],[219.667,284.333],[247,\
+284.333],[247,284.333],[247,257],[219.667,257],[219.667,257],[219.667,257],[\
+219.667,257],[192.333,257],[219.667,257],[219.667,229.667],[192.333,229.667],[\
+219.667,229.667],[192.333,229.667],[165,229.667],[137.667,229.667],[165,229.\
+667],[137.667,229.667],[137.667,202.333],[137.667,175],[137.667,175],[110.333,\
+175],[110.333,175],[110.333,175],[137.667,175],[137.667,175],[137.667,147.667]\
+,[137.667,120.333],[137.667,120.333],[165,120.333],[165,120.333],[192.333,120.\
+333],[165,120.333],[192.333,120.333],[192.333,120.333],[165,120.333],[192.333,\
+120.333],[192.333,93],[219.667,93],[192.333,93],[165,93],[165,65.6667],[192.\
+333,65.6667],[219.667,65.6667],[219.667,65.6667],[192.333,65.6667],[192.333,\
+38.3333],[219.667,38.3333],[192.333,38.3333],[192.333,38.3333],[192.333,38.\
+3333],[192.333,11]],\\\"type\\\":\\\"Line\\\",\\\"faceForm\\\":null,\\\"\
+antialiased\\\":true,\\\"edgeForm\\\":{\\\"color\\\":[63.0311,61.1984,153],\\\
+\"capForm\\\":\\\"Square\\\",\\\"opacity\\\":1,\\\"thickness\\\":{\\\"\
+absolute\\\":1},\\\"joinForm\\\":{\\\"type\\\":\\\"Miter\\\",\\\"d\\\":3.25},\
+\\\"dashing\\\":[]}},{\\\"type\\\":\\\"Group\\\",\\\"name\\\":\\\"Frame\\\",\\\
+\"primitives\\\":[{\\\"transform\\\":[1.0,0.0,0.0,1.0,0.0,0.0],\\\"type\\\":\\\
+\"clip\\\",\\\"path\\\":[[66,5],[66,437],[306,437],[306,5]]},{\\\"points\\\":[\
+[301.667,421],[83,421]],\\\"type\\\":\\\"Line\\\",\\\"faceForm\\\":null,\\\"\
+antialiased\\\":false,\\\"edgeForm\\\":{\\\"color\\\":[102,102,102],\\\"\
+capForm\\\":\\\"Square\\\",\\\"opacity\\\":1,\\\"thickness\\\":{\\\"absolute\\\
+\":0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"Miter\\\",\\\"d\\\":3.25},\\\"\
+dashing\\\":[]}},{\\\"points\\\":[[83,421],[83,11]],\\\"type\\\":\\\"Line\\\",\
+\\\"faceForm\\\":null,\\\"antialiased\\\":false,\\\"edgeForm\\\":{\\\"color\\\
+\":[102,102,102],\\\"capForm\\\":\\\"Square\\\",\\\"opacity\\\":1,\\\"\
+thickness\\\":{\\\"absolute\\\":0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"Miter\
+\\\",\\\"d\\\":3.25},\\\"dashing\\\":[]}},{\\\"points\\\":[[83,11],[301.667,\
+11]],\\\"type\\\":\\\"Line\\\",\\\"faceForm\\\":null,\\\"antialiased\\\":\
+false,\\\"edgeForm\\\":{\\\"color\\\":[102,102,102],\\\"capForm\\\":\\\"\
+Square\\\",\\\"opacity\\\":1,\\\"thickness\\\":{\\\"absolute\\\":0.5},\\\"\
+joinForm\\\":{\\\"type\\\":\\\"Miter\\\",\\\"d\\\":3.25},\\\"dashing\\\":[]}},\
+{\\\"points\\\":[[301.667,11],[301.667,421]],\\\"type\\\":\\\"Line\\\",\\\"\
+faceForm\\\":null,\\\"antialiased\\\":false,\\\"edgeForm\\\":{\\\"color\\\":[\
+102,102,102],\\\"capForm\\\":\\\"Square\\\",\\\"opacity\\\":1,\\\"thickness\\\
+\":{\\\"absolute\\\":0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"Miter\\\",\\\"d\\\
+\":3.25},\\\"dashing\\\":[]}},{\\\"points\\\":[[83,421],[83,417]],\\\"type\\\"\
+:\\\"Line\\\",\\\"faceForm\\\":null,\\\"antialiased\\\":false,\\\"edgeForm\\\"\
+:{\\\"color\\\":[102,102,102],\\\"capForm\\\":\\\"Butt\\\",\\\"opacity\\\":1,\
+\\\"thickness\\\":{\\\"absolute\\\":0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"\
+Miter\\\",\\\"d\\\":3.25},\\\"dashing\\\":[]}},{\\\"type\\\":\\\"Inset\\\",\\\
+\"metadata\\\":{\\\"localRect\\\":{\\\"left\\\":14,\\\"top\\\":200,\\\"bottom\
+\\\":212,\\\"right\\\":21},\\\"transform\\\":[1,0,0,1,66,224]},\\\"\
+boxImageData\\\":{\\\"imageSource\\\":\\\"data:image/png;base64,\
+iVBORw0KGgoAAAANSUhEUgAAAAcAAAAMCAYAAACulacQAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAA\
+AOxAAADsQBlSsOGwAAALZJREFUGJWdkCEOwjAAAA8QW9IuaSBNliFAgt5wOCb4AOlzCN/\
+hAxOb5AFYHIgmNQPTioolOILBcPbUHfzLCCBJkmld1+\
+c8z7fOuUvXdYcY42sCUFXVaRiG2DTNXmu90VqX1toOAGPMTSm1AlBKrY0xN4AxgBBi7r1/\
+AHjv70KI+Uf+YgwQQrBSygWAlHIZQrAAE4AsyxZFUeycc5eyLI9931+\
+tte0IIE3T2XdK27aHGOPz70G8AW0+RLN7lnZMAAAAAElFTkSuQmCC\\\",\\\"boundingBox\\\":\
+{\\\"width\\\":7,\\\"height\\\":12,\\\"baseline\\\":11}}},{\\\"transform\\\":[\
+1.0,0.0,0.0,1.0,0.0,0.0],\\\"type\\\":\\\"clip\\\",\\\"path\\\":[[66,5],[66,\
+437],[306,437],[306,5]]},{\\\"points\\\":[[96.6667,421],[96.6667,418.6]],\\\"\
+type\\\":\\\"Line\\\",\\\"faceForm\\\":null,\\\"antialiased\\\":false,\\\"\
+edgeForm\\\":{\\\"color\\\":[102,102,102],\\\"capForm\\\":\\\"Butt\\\",\\\"\
+opacity\\\":1,\\\"thickness\\\":{\\\"absolute\\\":0.5},\\\"joinForm\\\":{\\\"\
+type\\\":\\\"Miter\\\",\\\"d\\\":3.25},\\\"dashing\\\":[]}},{\\\"transform\\\"\
+:[1.0,0.0,0.0,1.0,0.0,0.0],\\\"type\\\":\\\"clip\\\",\\\"path\\\":[[66,5],[66,\
+437],[306,437],[306,5]]},{\\\"points\\\":[[110.333,421],[110.333,418.6]],\\\"\
+type\\\":\\\"Line\\\",\\\"faceForm\\\":null,\\\"antialiased\\\":false,\\\"\
+edgeForm\\\":{\\\"color\\\":[102,102,102],\\\"capForm\\\":\\\"Butt\\\",\\\"\
+opacity\\\":1,\\\"thickness\\\":{\\\"absolute\\\":0.5},\\\"joinForm\\\":{\\\"\
+type\\\":\\\"Miter\\\",\\\"d\\\":3.25},\\\"dashing\\\":[]}},{\\\"transform\\\"\
+:[1.0,0.0,0.0,1.0,0.0,0.0],\\\"type\\\":\\\"clip\\\",\\\"path\\\":[[66,5],[66,\
+437],[306,437],[306,5]]},{\\\"points\\\":[[124,421],[124,418.6]],\\\"type\\\":\
+\\\"Line\\\",\\\"faceForm\\\":null,\\\"antialiased\\\":false,\\\"edgeForm\\\":\
+{\\\"color\\\":[102,102,102],\\\"capForm\\\":\\\"Butt\\\",\\\"opacity\\\":1,\\\
+\"thickness\\\":{\\\"absolute\\\":0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"\
+Miter\\\",\\\"d\\\":3.25},\\\"dashing\\\":[]}},{\\\"transform\\\":[1.0,0.0,0.\
+0,1.0,0.0,0.0],\\\"type\\\":\\\"clip\\\",\\\"path\\\":[[66,5],[66,437],[306,\
+437],[306,5]]},{\\\"points\\\":[[137.667,421],[137.667,417]],\\\"type\\\":\\\"\
+Line\\\",\\\"faceForm\\\":null,\\\"antialiased\\\":false,\\\"edgeForm\\\":{\\\
+\"color\\\":[102,102,102],\\\"capForm\\\":\\\"Butt\\\",\\\"opacity\\\":1,\\\"\
+thickness\\\":{\\\"absolute\\\":0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"Miter\
+\\\",\\\"d\\\":3.25},\\\"dashing\\\":[]}},{\\\"type\\\":\\\"Inset\\\",\\\"\
+metadata\\\":{\\\"localRect\\\":{\\\"left\\\":68,\\\"top\\\":200,\\\"bottom\\\
+\":212,\\\"right\\\":75},\\\"transform\\\":[1,0,0,1,66,224]},\\\"boxImageData\
+\\\":{\\\"imageSource\\\":\\\"data:image/png;base64,\
+iVBORw0KGgoAAAANSUhEUgAAAAcAAAAMCAYAAACulacQAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAA\
+AOxAAADsQBlSsOGwAAAJZJREFUGJVjYCAXMDIwMDAoKSmFGhsbN/\
+Dy8iq8fv36zNGjR7PfvXt3hYGBgYHBxcVllZCQkA4LCwuXnp5eSUhIyGWsRrGzswslJCR8YGBgYGBC\
+l9TW1s5+9OjRNgxdGhoaKaGhoVc4ODhEUCR0dHTyw8LCrnNxcUmgSBgaGlZjk2BkYGBgSEtL+\
+49uxfz583nxBAEBAADAViRUP6u4zgAAAABJRU5ErkJggg==\\\",\\\"boundingBox\\\":{\\\"\
+width\\\":7,\\\"height\\\":12,\\\"baseline\\\":11}}},{\\\"transform\\\":[1.0,\
+0.0,0.0,1.0,0.0,0.0],\\\"type\\\":\\\"clip\\\",\\\"path\\\":[[66,5],[66,437],[\
+306,437],[306,5]]},{\\\"points\\\":[[151.333,421],[151.333,418.6]],\\\"type\\\
+\":\\\"Line\\\",\\\"faceForm\\\":null,\\\"antialiased\\\":false,\\\"edgeForm\\\
+\":{\\\"color\\\":[102,102,102],\\\"capForm\\\":\\\"Butt\\\",\\\"opacity\\\":\
+1,\\\"thickness\\\":{\\\"absolute\\\":0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"\
+Miter\\\",\\\"d\\\":3.25},\\\"dashing\\\":[]}},{\\\"transform\\\":[1.0,0.0,0.\
+0,1.0,0.0,0.0],\\\"type\\\":\\\"clip\\\",\\\"path\\\":[[66,5],[66,437],[306,\
+437],[306,5]]},{\\\"points\\\":[[165,421],[165,418.6]],\\\"type\\\":\\\"Line\\\
+\",\\\"faceForm\\\":null,\\\"antialiased\\\":false,\\\"edgeForm\\\":{\\\"\
+color\\\":[102,102,102],\\\"capForm\\\":\\\"Butt\\\",\\\"opacity\\\":1,\\\"\
+thickness\\\":{\\\"absolute\\\":0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"Miter\
+\\\",\\\"d\\\":3.25},\\\"dashing\\\":[]}},{\\\"transform\\\":[1.0,0.0,0.0,1.0,\
+0.0,0.0],\\\"type\\\":\\\"clip\\\",\\\"path\\\":[[66,5],[66,437],[306,437],[\
+306,5]]},{\\\"points\\\":[[178.667,421],[178.667,418.6]],\\\"type\\\":\\\"\
+Line\\\",\\\"faceForm\\\":null,\\\"antialiased\\\":false,\\\"edgeForm\\\":{\\\
+\"color\\\":[102,102,102],\\\"capForm\\\":\\\"Butt\\\",\\\"opacity\\\":1,\\\"\
+thickness\\\":{\\\"absolute\\\":0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"Miter\
+\\\",\\\"d\\\":3.25},\\\"dashing\\\":[]}},{\\\"transform\\\":[1.0,0.0,0.0,1.0,\
+0.0,0.0],\\\"type\\\":\\\"clip\\\",\\\"path\\\":[[66,5],[66,437],[306,437],[\
+306,5]]},{\\\"points\\\":[[192.333,421],[192.333,417]],\\\"type\\\":\\\"Line\\\
+\",\\\"faceForm\\\":null,\\\"antialiased\\\":false,\\\"edgeForm\\\":{\\\"\
+color\\\":[102,102,102],\\\"capForm\\\":\\\"Butt\\\",\\\"opacity\\\":1,\\\"\
+thickness\\\":{\\\"absolute\\\":0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"Miter\
+\\\",\\\"d\\\":3.25},\\\"dashing\\\":[]}},{\\\"type\\\":\\\"Inset\\\",\\\"\
+metadata\\\":{\\\"localRect\\\":{\\\"left\\\":123,\\\"top\\\":200,\\\"bottom\\\
+\":212,\\\"right\\\":130},\\\"transform\\\":[1,0,0,1,66,224]},\\\"\
+boxImageData\\\":{\\\"imageSource\\\":\\\"data:image/png;base64,\
+iVBORw0KGgoAAAANSUhEUgAAAAcAAAAMCAYAAACulacQAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAA\
+AOxAAADsQBlSsOGwAAAHxJREFUGJVjYKAKUFVVjUlOTv4B4zPBGKKioqZaWlpZ9+\
+7dW40iycXFJWFraztj79694RwcHMJwSWZmZnYnJ6flR48ezfny5ctjHh4eObikjY3N9Fu3bs1/+\
+fLlcQYGBgZubm5ZmCRjWlraf2yOmzVrFiOGILJiJgxZqgAAjIgieTbD8a0AAAAASUVORK5CYII=\\\
+\",\\\"boundingBox\\\":{\\\"width\\\":7,\\\"height\\\":12,\\\"baseline\\\":11}\
+}},{\\\"transform\\\":[1.0,0.0,0.0,1.0,0.0,0.0],\\\"type\\\":\\\"clip\\\",\\\"\
+path\\\":[[66,5],[66,437],[306,437],[306,5]]},{\\\"points\\\":[[206,421],[206,\
+418.6]],\\\"type\\\":\\\"Line\\\",\\\"faceForm\\\":null,\\\"antialiased\\\":\
+false,\\\"edgeForm\\\":{\\\"color\\\":[102,102,102],\\\"capForm\\\":\\\"Butt\\\
+\",\\\"opacity\\\":1,\\\"thickness\\\":{\\\"absolute\\\":0.5},\\\"joinForm\\\"\
+:{\\\"type\\\":\\\"Miter\\\",\\\"d\\\":3.25},\\\"dashing\\\":[]}},{\\\"\
+transform\\\":[1.0,0.0,0.0,1.0,0.0,0.0],\\\"type\\\":\\\"clip\\\",\\\"path\\\"\
+:[[66,5],[66,437],[306,437],[306,5]]},{\\\"points\\\":[[219.667,421],[219.667,\
+418.6]],\\\"type\\\":\\\"Line\\\",\\\"faceForm\\\":null,\\\"antialiased\\\":\
+false,\\\"edgeForm\\\":{\\\"color\\\":[102,102,102],\\\"capForm\\\":\\\"Butt\\\
+\",\\\"opacity\\\":1,\\\"thickness\\\":{\\\"absolute\\\":0.5},\\\"joinForm\\\"\
+:{\\\"type\\\":\\\"Miter\\\",\\\"d\\\":3.25},\\\"dashing\\\":[]}},{\\\"\
+transform\\\":[1.0,0.0,0.0,1.0,0.0,0.0],\\\"type\\\":\\\"clip\\\",\\\"path\\\"\
+:[[66,5],[66,437],[306,437],[306,5]]},{\\\"points\\\":[[233.333,421],[233.333,\
+418.6]],\\\"type\\\":\\\"Line\\\",\\\"faceForm\\\":null,\\\"antialiased\\\":\
+false,\\\"edgeForm\\\":{\\\"color\\\":[102,102,102],\\\"capForm\\\":\\\"Butt\\\
+\",\\\"opacity\\\":1,\\\"thickness\\\":{\\\"absolute\\\":0.5},\\\"joinForm\\\"\
+:{\\\"type\\\":\\\"Miter\\\",\\\"d\\\":3.25},\\\"dashing\\\":[]}},{\\\"\
+transform\\\":[1.0,0.0,0.0,1.0,0.0,0.0],\\\"type\\\":\\\"clip\\\",\\\"path\\\"\
+:[[66,5],[66,437],[306,437],[306,5]]},{\\\"points\\\":[[247,421],[247,417]],\\\
+\"type\\\":\\\"Line\\\",\\\"faceForm\\\":null,\\\"antialiased\\\":false,\\\"\
+edgeForm\\\":{\\\"color\\\":[102,102,102],\\\"capForm\\\":\\\"Butt\\\",\\\"\
+opacity\\\":1,\\\"thickness\\\":{\\\"absolute\\\":0.5},\\\"joinForm\\\":{\\\"\
+type\\\":\\\"Miter\\\",\\\"d\\\":3.25},\\\"dashing\\\":[]}},{\\\"type\\\":\\\"\
+Inset\\\",\\\"metadata\\\":{\\\"localRect\\\":{\\\"left\\\":177,\\\"top\\\":\
+200,\\\"bottom\\\":212,\\\"right\\\":184},\\\"transform\\\":[1,0,0,1,66,224]},\
+\\\"boxImageData\\\":{\\\"imageSource\\\":\\\"data:image/png;base64,\
+iVBORw0KGgoAAAANSUhEUgAAAAcAAAAMCAYAAACulacQAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAA\
+AOxAAADsQBlSsOGwAAAM1JREFUGJVjYCAXMMIYOjo6uXp6eiU8PDyyDAwMjLNmzYLIKSoqBkVERNwW\
+FRU1YWRkZELR7u/\
+vf1RRUTEI3VgmBgYGBkFBQS0pKSmnpKSkLyEhIRdFRESM4ZJMTEysHz58uLFo0SLxGzduzLGzs5sJl\
+/zy5cuTmzdvzvvz58/\
+XGzduzBUQENBkYGBgYGZgYGDg5uaW4efnV3n37t0VDQ2NZE5OTvEbN27MYWRgYGBgY2MTcHZ2Xi4lJ\
+eXw7t27KwcPHkx69+7dZbIDiAEAMMM7mjN2r6AAAAAASUVORK5CYII=\\\",\\\"boundingBox\\\
+\":{\\\"width\\\":7,\\\"height\\\":12,\\\"baseline\\\":11}}},{\\\"transform\\\
+\":[1.0,0.0,0.0,1.0,0.0,0.0],\\\"type\\\":\\\"clip\\\",\\\"path\\\":[[66,5],[\
+66,437],[306,437],[306,5]]},{\\\"points\\\":[[260.667,421],[260.667,418.6]],\\\
+\"type\\\":\\\"Line\\\",\\\"faceForm\\\":null,\\\"antialiased\\\":false,\\\"\
+edgeForm\\\":{\\\"color\\\":[102,102,102],\\\"capForm\\\":\\\"Butt\\\",\\\"\
+opacity\\\":1,\\\"thickness\\\":{\\\"absolute\\\":0.5},\\\"joinForm\\\":{\\\"\
+type\\\":\\\"Miter\\\",\\\"d\\\":3.25},\\\"dashing\\\":[]}},{\\\"transform\\\"\
+:[1.0,0.0,0.0,1.0,0.0,0.0],\\\"type\\\":\\\"clip\\\",\\\"path\\\":[[66,5],[66,\
+437],[306,437],[306,5]]},{\\\"points\\\":[[274.333,421],[274.333,418.6]],\\\"\
+type\\\":\\\"Line\\\",\\\"faceForm\\\":null,\\\"antialiased\\\":false,\\\"\
+edgeForm\\\":{\\\"color\\\":[102,102,102],\\\"capForm\\\":\\\"Butt\\\",\\\"\
+opacity\\\":1,\\\"thickness\\\":{\\\"absolute\\\":0.5},\\\"joinForm\\\":{\\\"\
+type\\\":\\\"Miter\\\",\\\"d\\\":3.25},\\\"dashing\\\":[]}},{\\\"transform\\\"\
+:[1.0,0.0,0.0,1.0,0.0,0.0],\\\"type\\\":\\\"clip\\\",\\\"path\\\":[[66,5],[66,\
+437],[306,437],[306,5]]},{\\\"points\\\":[[288,421],[288,418.6]],\\\"type\\\":\
+\\\"Line\\\",\\\"faceForm\\\":null,\\\"antialiased\\\":false,\\\"edgeForm\\\":\
+{\\\"color\\\":[102,102,102],\\\"capForm\\\":\\\"Butt\\\",\\\"opacity\\\":1,\\\
+\"thickness\\\":{\\\"absolute\\\":0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"\
+Miter\\\",\\\"d\\\":3.25},\\\"dashing\\\":[]}},{\\\"transform\\\":[1.0,0.0,0.\
+0,1.0,0.0,0.0],\\\"type\\\":\\\"clip\\\",\\\"path\\\":[[66,5],[66,437],[306,\
+437],[306,5]]},{\\\"points\\\":[[301.667,421],[301.667,417]],\\\"type\\\":\\\"\
+Line\\\",\\\"faceForm\\\":null,\\\"antialiased\\\":false,\\\"edgeForm\\\":{\\\
+\"color\\\":[102,102,102],\\\"capForm\\\":\\\"Butt\\\",\\\"opacity\\\":1,\\\"\
+thickness\\\":{\\\"absolute\\\":0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"Miter\
+\\\",\\\"d\\\":3.25},\\\"dashing\\\":[]}},{\\\"type\\\":\\\"Inset\\\",\\\"\
+metadata\\\":{\\\"localRect\\\":{\\\"left\\\":232,\\\"top\\\":200,\\\"bottom\\\
+\":212,\\\"right\\\":239},\\\"transform\\\":[1,0,0,1,66,224]},\\\"\
+boxImageData\\\":{\\\"imageSource\\\":\\\"data:image/png;base64,\
+iVBORw0KGgoAAAANSUhEUgAAAAcAAAAMCAYAAACulacQAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAA\
+AOxAAADsQBlSsOGwAAANhJREFUGJWdkDFqg2AYht/UDyQBwQiO/tDlp4gdCy52L+\
+13hb9B6VLo2FP0BD2HvYBOLt0KyRYQ2iER84FocLKbB8hzgPd5eYBLWQCAUuopjuMPx3Guu67bV1X1\
+Xtf1FwDAGHMMguDBsixbKfVojDkAwBUADMPwBwDTNE0A0Pf97zzred4tMxe2ba/\
+HcTzleX7ftu0PAICZizAMX4loFUXRGzMX86ssy85EtAQAIlqlaTrMThHZaa2fiWiptd6IyHZ2+r5/\
+lyTJp+u6NyKyK8vypWma74sD4R9qOUebnrLQNQAAAABJRU5ErkJggg==\\\",\\\"boundingBox\\\
+\":{\\\"width\\\":7,\\\"height\\\":12,\\\"baseline\\\":11}}},{\\\"transform\\\
+\":[1.0,0.0,0.0,1.0,0.0,0.0],\\\"type\\\":\\\"clip\\\",\\\"path\\\":[[66,5],[\
+66,437],[306,437],[306,5]]},{\\\"points\\\":[[83,421],[85.4,421]],\\\"type\\\"\
+:\\\"Line\\\",\\\"faceForm\\\":null,\\\"antialiased\\\":false,\\\"edgeForm\\\"\
+:{\\\"color\\\":[102,102,102],\\\"capForm\\\":\\\"Butt\\\",\\\"opacity\\\":1,\
+\\\"thickness\\\":{\\\"absolute\\\":0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"\
+Miter\\\",\\\"d\\\":3.25},\\\"dashing\\\":[]}},{\\\"transform\\\":[1.0,0.0,0.\
+0,1.0,0.0,0.0],\\\"type\\\":\\\"clip\\\",\\\"path\\\":[[66,5],[66,437],[306,\
+437],[306,5]]},{\\\"points\\\":[[83,407.333],[85.4,407.333]],\\\"type\\\":\\\"\
+Line\\\",\\\"faceForm\\\":null,\\\"antialiased\\\":false,\\\"edgeForm\\\":{\\\
+\"color\\\":[102,102,102],\\\"capForm\\\":\\\"Butt\\\",\\\"opacity\\\":1,\\\"\
+thickness\\\":{\\\"absolute\\\":0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"Miter\
+\\\",\\\"d\\\":3.25},\\\"dashing\\\":[]}},{\\\"transform\\\":[1.0,0.0,0.0,1.0,\
+0.0,0.0],\\\"type\\\":\\\"clip\\\",\\\"path\\\":[[66,5],[66,437],[306,437],[\
+306,5]]},{\\\"points\\\":[[83,393.667],[87,393.667]],\\\"type\\\":\\\"Line\\\"\
+,\\\"faceForm\\\":null,\\\"antialiased\\\":false,\\\"edgeForm\\\":{\\\"color\\\
+\":[102,102,102],\\\"capForm\\\":\\\"Butt\\\",\\\"opacity\\\":1,\\\"thickness\
+\\\":{\\\"absolute\\\":0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"Miter\\\",\\\"\
+d\\\":3.25},\\\"dashing\\\":[]}},{\\\"type\\\":\\\"Inset\\\",\\\"metadata\\\":\
+{\\\"localRect\\\":{\\\"left\\\":7,\\\"top\\\":164,\\\"bottom\\\":176,\\\"\
+right\\\":14},\\\"transform\\\":[1,0,0,1,66,224]},\\\"boxImageData\\\":{\\\"\
+imageSource\\\":\\\"data:image/png;base64,\
+iVBORw0KGgoAAAANSUhEUgAAAAcAAAAMCAYAAACulacQAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAA\
+AOxAAADsQBlSsOGwAAAJZJREFUGJVjYCAXMDIwMDAoKSmFGhsbN/\
+Dy8iq8fv36zNGjR7PfvXt3hYGBgYHBxcVllZCQkA4LCwuXnp5eSUhIyGWsRrGzswslJCR8YGBgYGBC\
+l9TW1s5+9OjRNgxdGhoaKaGhoVc4ODhEUCR0dHTyw8LCrnNxcUmgSBgaGlZjk2BkYGBgSEtL+\
+49uxfz583nxBAEBAADAViRUP6u4zgAAAABJRU5ErkJggg==\\\",\\\"boundingBox\\\":{\\\"\
+width\\\":7,\\\"height\\\":12,\\\"baseline\\\":11}}},{\\\"transform\\\":[1.0,\
+0.0,0.0,1.0,0.0,0.0],\\\"type\\\":\\\"clip\\\",\\\"path\\\":[[66,5],[66,437],[\
+306,437],[306,5]]},{\\\"points\\\":[[83,380],[85.4,380]],\\\"type\\\":\\\"\
+Line\\\",\\\"faceForm\\\":null,\\\"antialiased\\\":false,\\\"edgeForm\\\":{\\\
+\"color\\\":[102,102,102],\\\"capForm\\\":\\\"Butt\\\",\\\"opacity\\\":1,\\\"\
+thickness\\\":{\\\"absolute\\\":0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"Miter\
+\\\",\\\"d\\\":3.25},\\\"dashing\\\":[]}},{\\\"transform\\\":[1.0,0.0,0.0,1.0,\
+0.0,0.0],\\\"type\\\":\\\"clip\\\",\\\"path\\\":[[66,5],[66,437],[306,437],[\
+306,5]]},{\\\"points\\\":[[83,366.333],[85.4,366.333]],\\\"type\\\":\\\"Line\\\
+\",\\\"faceForm\\\":null,\\\"antialiased\\\":false,\\\"edgeForm\\\":{\\\"\
+color\\\":[102,102,102],\\\"capForm\\\":\\\"Butt\\\",\\\"opacity\\\":1,\\\"\
+thickness\\\":{\\\"absolute\\\":0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"Miter\
+\\\",\\\"d\\\":3.25},\\\"dashing\\\":[]}},{\\\"transform\\\":[1.0,0.0,0.0,1.0,\
+0.0,0.0],\\\"type\\\":\\\"clip\\\",\\\"path\\\":[[66,5],[66,437],[306,437],[\
+306,5]]},{\\\"points\\\":[[83,352.667],[85.4,352.667]],\\\"type\\\":\\\"Line\\\
+\",\\\"faceForm\\\":null,\\\"antialiased\\\":false,\\\"edgeForm\\\":{\\\"\
+color\\\":[102,102,102],\\\"capForm\\\":\\\"Butt\\\",\\\"opacity\\\":1,\\\"\
+thickness\\\":{\\\"absolute\\\":0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"Miter\
+\\\",\\\"d\\\":3.25},\\\"dashing\\\":[]}},{\\\"transform\\\":[1.0,0.0,0.0,1.0,\
+0.0,0.0],\\\"type\\\":\\\"clip\\\",\\\"path\\\":[[66,5],[66,437],[306,437],[\
+306,5]]},{\\\"points\\\":[[83,339],[87,339]],\\\"type\\\":\\\"Line\\\",\\\"\
+faceForm\\\":null,\\\"antialiased\\\":false,\\\"edgeForm\\\":{\\\"color\\\":[\
+102,102,102],\\\"capForm\\\":\\\"Butt\\\",\\\"opacity\\\":1,\\\"thickness\\\":\
+{\\\"absolute\\\":0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"Miter\\\",\\\"d\\\":\
+3.25},\\\"dashing\\\":[]}},{\\\"type\\\":\\\"Inset\\\",\\\"metadata\\\":{\\\"\
+localRect\\\":{\\\"left\\\":7,\\\"top\\\":109,\\\"bottom\\\":121,\\\"right\\\"\
+:14},\\\"transform\\\":[1,0,0,1,66,224]},\\\"boxImageData\\\":{\\\"\
+imageSource\\\":\\\"data:image/png;base64,\
+iVBORw0KGgoAAAANSUhEUgAAAAcAAAAMCAYAAACulacQAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAA\
+AOxAAADsQBlSsOGwAAAHxJREFUGJVjYKAKUFVVjUlOTv4B4zPBGKKioqZaWlpZ9+\
+7dW40iycXFJWFraztj79694RwcHMJwSWZmZnYnJ6flR48ezfny5ctjHh4eObikjY3N9Fu3bs1/+\
+fLlcQYGBgZubm5ZmCRjWlraf2yOmzVrFiOGILJiJgxZqgAAjIgieTbD8a0AAAAASUVORK5CYII=\\\
+\",\\\"boundingBox\\\":{\\\"width\\\":7,\\\"height\\\":12,\\\"baseline\\\":11}\
+}},{\\\"transform\\\":[1.0,0.0,0.0,1.0,0.0,0.0],\\\"type\\\":\\\"clip\\\",\\\"\
+path\\\":[[66,5],[66,437],[306,437],[306,5]]},{\\\"points\\\":[[83,325.333],[\
+85.4,325.333]],\\\"type\\\":\\\"Line\\\",\\\"faceForm\\\":null,\\\"\
+antialiased\\\":false,\\\"edgeForm\\\":{\\\"color\\\":[102,102,102],\\\"\
+capForm\\\":\\\"Butt\\\",\\\"opacity\\\":1,\\\"thickness\\\":{\\\"absolute\\\"\
+:0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"Miter\\\",\\\"d\\\":3.25},\\\"\
+dashing\\\":[]}},{\\\"transform\\\":[1.0,0.0,0.0,1.0,0.0,0.0],\\\"type\\\":\\\
+\"clip\\\",\\\"path\\\":[[66,5],[66,437],[306,437],[306,5]]},{\\\"points\\\":[\
+[83,311.667],[85.4,311.667]],\\\"type\\\":\\\"Line\\\",\\\"faceForm\\\":null,\
+\\\"antialiased\\\":false,\\\"edgeForm\\\":{\\\"color\\\":[102,102,102],\\\"\
+capForm\\\":\\\"Butt\\\",\\\"opacity\\\":1,\\\"thickness\\\":{\\\"absolute\\\"\
+:0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"Miter\\\",\\\"d\\\":3.25},\\\"\
+dashing\\\":[]}},{\\\"transform\\\":[1.0,0.0,0.0,1.0,0.0,0.0],\\\"type\\\":\\\
+\"clip\\\",\\\"path\\\":[[66,5],[66,437],[306,437],[306,5]]},{\\\"points\\\":[\
+[83,298],[85.4,298]],\\\"type\\\":\\\"Line\\\",\\\"faceForm\\\":null,\\\"\
+antialiased\\\":false,\\\"edgeForm\\\":{\\\"color\\\":[102,102,102],\\\"\
+capForm\\\":\\\"Butt\\\",\\\"opacity\\\":1,\\\"thickness\\\":{\\\"absolute\\\"\
+:0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"Miter\\\",\\\"d\\\":3.25},\\\"\
+dashing\\\":[]}},{\\\"transform\\\":[1.0,0.0,0.0,1.0,0.0,0.0],\\\"type\\\":\\\
+\"clip\\\",\\\"path\\\":[[66,5],[66,437],[306,437],[306,5]]},{\\\"points\\\":[\
+[83,284.333],[87,284.333]],\\\"type\\\":\\\"Line\\\",\\\"faceForm\\\":null,\\\
+\"antialiased\\\":false,\\\"edgeForm\\\":{\\\"color\\\":[102,102,102],\\\"\
+capForm\\\":\\\"Butt\\\",\\\"opacity\\\":1,\\\"thickness\\\":{\\\"absolute\\\"\
+:0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"Miter\\\",\\\"d\\\":3.25},\\\"\
+dashing\\\":[]}},{\\\"type\\\":\\\"Inset\\\",\\\"metadata\\\":{\\\"localRect\\\
+\":{\\\"left\\\":7,\\\"top\\\":54,\\\"bottom\\\":66,\\\"right\\\":14},\\\"\
+transform\\\":[1,0,0,1,66,224]},\\\"boxImageData\\\":{\\\"imageSource\\\":\\\"\
+data:image/png;base64,\
+iVBORw0KGgoAAAANSUhEUgAAAAcAAAAMCAYAAACulacQAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAA\
+AOxAAADsQBlSsOGwAAAM1JREFUGJVjYCAXMMIYOjo6uXp6eiU8PDyyDAwMjLNmzYLIKSoqBkVERNwW\
+FRU1YWRkZELR7u/\
+vf1RRUTEI3VgmBgYGBkFBQS0pKSmnpKSkLyEhIRdFRESM4ZJMTEysHz58uLFo0SLxGzduzLGzs5sJl\
+/zy5cuTmzdvzvvz58/\
+XGzduzBUQENBkYGBgYGZgYGDg5uaW4efnV3n37t0VDQ2NZE5OTvEbN27MYWRgYGBgY2MTcHZ2Xi4lJ\
+eXw7t27KwcPHkx69+7dZbIDiAEAMMM7mjN2r6AAAAAASUVORK5CYII=\\\",\\\"boundingBox\\\
+\":{\\\"width\\\":7,\\\"height\\\":12,\\\"baseline\\\":11}}},{\\\"transform\\\
+\":[1.0,0.0,0.0,1.0,0.0,0.0],\\\"type\\\":\\\"clip\\\",\\\"path\\\":[[66,5],[\
+66,437],[306,437],[306,5]]},{\\\"points\\\":[[83,270.667],[85.4,270.667]],\\\"\
+type\\\":\\\"Line\\\",\\\"faceForm\\\":null,\\\"antialiased\\\":false,\\\"\
+edgeForm\\\":{\\\"color\\\":[102,102,102],\\\"capForm\\\":\\\"Butt\\\",\\\"\
+opacity\\\":1,\\\"thickness\\\":{\\\"absolute\\\":0.5},\\\"joinForm\\\":{\\\"\
+type\\\":\\\"Miter\\\",\\\"d\\\":3.25},\\\"dashing\\\":[]}},{\\\"transform\\\"\
+:[1.0,0.0,0.0,1.0,0.0,0.0],\\\"type\\\":\\\"clip\\\",\\\"path\\\":[[66,5],[66,\
+437],[306,437],[306,5]]},{\\\"points\\\":[[83,257],[85.4,257]],\\\"type\\\":\\\
+\"Line\\\",\\\"faceForm\\\":null,\\\"antialiased\\\":false,\\\"edgeForm\\\":{\
+\\\"color\\\":[102,102,102],\\\"capForm\\\":\\\"Butt\\\",\\\"opacity\\\":1,\\\
+\"thickness\\\":{\\\"absolute\\\":0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"\
+Miter\\\",\\\"d\\\":3.25},\\\"dashing\\\":[]}},{\\\"transform\\\":[1.0,0.0,0.\
+0,1.0,0.0,0.0],\\\"type\\\":\\\"clip\\\",\\\"path\\\":[[66,5],[66,437],[306,\
+437],[306,5]]},{\\\"points\\\":[[83,243.333],[85.4,243.333]],\\\"type\\\":\\\"\
+Line\\\",\\\"faceForm\\\":null,\\\"antialiased\\\":false,\\\"edgeForm\\\":{\\\
+\"color\\\":[102,102,102],\\\"capForm\\\":\\\"Butt\\\",\\\"opacity\\\":1,\\\"\
+thickness\\\":{\\\"absolute\\\":0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"Miter\
+\\\",\\\"d\\\":3.25},\\\"dashing\\\":[]}},{\\\"transform\\\":[1.0,0.0,0.0,1.0,\
+0.0,0.0],\\\"type\\\":\\\"clip\\\",\\\"path\\\":[[66,5],[66,437],[306,437],[\
+306,5]]},{\\\"points\\\":[[83,229.667],[87,229.667]],\\\"type\\\":\\\"Line\\\"\
+,\\\"faceForm\\\":null,\\\"antialiased\\\":false,\\\"edgeForm\\\":{\\\"color\\\
+\":[102,102,102],\\\"capForm\\\":\\\"Butt\\\",\\\"opacity\\\":1,\\\"thickness\
+\\\":{\\\"absolute\\\":0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"Miter\\\",\\\"\
+d\\\":3.25},\\\"dashing\\\":[]}},{\\\"type\\\":\\\"Inset\\\",\\\"metadata\\\":\
+{\\\"localRect\\\":{\\\"left\\\":7,\\\"top\\\":0,\\\"bottom\\\":12,\\\"right\\\
+\":14},\\\"transform\\\":[1,0,0,1,66,224]},\\\"boxImageData\\\":{\\\"\
+imageSource\\\":\\\"data:image/png;base64,\
+iVBORw0KGgoAAAANSUhEUgAAAAcAAAAMCAYAAACulacQAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAA\
+AOxAAADsQBlSsOGwAAANhJREFUGJWdkDFqg2AYht/UDyQBwQiO/tDlp4gdCy52L+\
+13hb9B6VLo2FP0BD2HvYBOLt0KyRYQ2iER84FocLKbB8hzgPd5eYBLWQCAUuopjuMPx3Guu67bV1X1\
+Xtf1FwDAGHMMguDBsixbKfVojDkAwBUADMPwBwDTNE0A0Pf97zzred4tMxe2ba/\
+HcTzleX7ftu0PAICZizAMX4loFUXRGzMX86ssy85EtAQAIlqlaTrMThHZaa2fiWiptd6IyHZ2+r5/\
+lyTJp+u6NyKyK8vypWma74sD4R9qOUebnrLQNQAAAABJRU5ErkJggg==\\\",\\\"boundingBox\\\
+\":{\\\"width\\\":7,\\\"height\\\":12,\\\"baseline\\\":11}}},{\\\"transform\\\
+\":[1.0,0.0,0.0,1.0,0.0,0.0],\\\"type\\\":\\\"clip\\\",\\\"path\\\":[[66,5],[\
+66,437],[306,437],[306,5]]},{\\\"points\\\":[[83,216],[85.4,216]],\\\"type\\\"\
+:\\\"Line\\\",\\\"faceForm\\\":null,\\\"antialiased\\\":false,\\\"edgeForm\\\"\
+:{\\\"color\\\":[102,102,102],\\\"capForm\\\":\\\"Butt\\\",\\\"opacity\\\":1,\
+\\\"thickness\\\":{\\\"absolute\\\":0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"\
+Miter\\\",\\\"d\\\":3.25},\\\"dashing\\\":[]}},{\\\"transform\\\":[1.0,0.0,0.\
+0,1.0,0.0,0.0],\\\"type\\\":\\\"clip\\\",\\\"path\\\":[[66,5],[66,437],[306,\
+437],[306,5]]},{\\\"points\\\":[[83,202.333],[85.4,202.333]],\\\"type\\\":\\\"\
+Line\\\",\\\"faceForm\\\":null,\\\"antialiased\\\":false,\\\"edgeForm\\\":{\\\
+\"color\\\":[102,102,102],\\\"capForm\\\":\\\"Butt\\\",\\\"opacity\\\":1,\\\"\
+thickness\\\":{\\\"absolute\\\":0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"Miter\
+\\\",\\\"d\\\":3.25},\\\"dashing\\\":[]}},{\\\"transform\\\":[1.0,0.0,0.0,1.0,\
+0.0,0.0],\\\"type\\\":\\\"clip\\\",\\\"path\\\":[[66,5],[66,437],[306,437],[\
+306,5]]},{\\\"points\\\":[[83,188.667],[85.4,188.667]],\\\"type\\\":\\\"Line\\\
+\",\\\"faceForm\\\":null,\\\"antialiased\\\":false,\\\"edgeForm\\\":{\\\"\
+color\\\":[102,102,102],\\\"capForm\\\":\\\"Butt\\\",\\\"opacity\\\":1,\\\"\
+thickness\\\":{\\\"absolute\\\":0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"Miter\
+\\\",\\\"d\\\":3.25},\\\"dashing\\\":[]}},{\\\"transform\\\":[1.0,0.0,0.0,1.0,\
+0.0,0.0],\\\"type\\\":\\\"clip\\\",\\\"path\\\":[[66,5],[66,437],[306,437],[\
+306,5]]},{\\\"points\\\":[[83,175],[87,175]],\\\"type\\\":\\\"Line\\\",\\\"\
+faceForm\\\":null,\\\"antialiased\\\":false,\\\"edgeForm\\\":{\\\"color\\\":[\
+102,102,102],\\\"capForm\\\":\\\"Butt\\\",\\\"opacity\\\":1,\\\"thickness\\\":\
+{\\\"absolute\\\":0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"Miter\\\",\\\"d\\\":\
+3.25},\\\"dashing\\\":[]}},{\\\"type\\\":\\\"Inset\\\",\\\"metadata\\\":{\\\"\
+localRect\\\":{\\\"left\\\":0,\\\"top\\\":-55,\\\"bottom\\\":-43,\\\"right\\\"\
+:14},\\\"transform\\\":[1,0,0,1,66,224]},\\\"boxImageData\\\":{\\\"\
+imageSource\\\":\\\"data:image/png;base64,\
+iVBORw0KGgoAAAANSUhEUgAAAA4AAAAMCAYAAABSgIzaAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAA\
+AOxAAADsQBlSsOGwAAAM5JREFUKJG9kTEKwkAQRb82E9itYhOwcE+\
+w7TayVXptvEIuoJdQ9ALBE9hpm5SeYE+QFEIqbXaLqbQKRFCMIL5ymPeZ4QP/\
+ZgAAWZbd20Ge54PuAhHFaZoekiSZNk1zLstywcy3p5RuQIsxZmOt3RNRbK3dG2PWADD8dJJSauac2z\
+Lz1Tm3U0rNe4lCiLH3vgYA730lhBj3Et/\
+xUQwhXKSUEwCQUqoQwqWXWNf1SWu9IqJYa72squoIvKijpa0liqJRt46iKBbMfP3usV/\
+wAGvOS3M3wxvLAAAAAElFTkSuQmCC\\\",\\\"boundingBox\\\":{\\\"width\\\":14,\\\"\
+height\\\":12,\\\"baseline\\\":11}}},{\\\"transform\\\":[1.0,0.0,0.0,1.0,0.0,\
+0.0],\\\"type\\\":\\\"clip\\\",\\\"path\\\":[[66,5],[66,437],[306,437],[306,5]\
+]},{\\\"points\\\":[[83,161.333],[85.4,161.333]],\\\"type\\\":\\\"Line\\\",\\\
+\"faceForm\\\":null,\\\"antialiased\\\":false,\\\"edgeForm\\\":{\\\"color\\\":\
+[102,102,102],\\\"capForm\\\":\\\"Butt\\\",\\\"opacity\\\":1,\\\"thickness\\\"\
+:{\\\"absolute\\\":0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"Miter\\\",\\\"d\\\"\
+:3.25},\\\"dashing\\\":[]}},{\\\"transform\\\":[1.0,0.0,0.0,1.0,0.0,0.0],\\\"\
+type\\\":\\\"clip\\\",\\\"path\\\":[[66,5],[66,437],[306,437],[306,5]]},{\\\"\
+points\\\":[[83,147.667],[85.4,147.667]],\\\"type\\\":\\\"Line\\\",\\\"\
+faceForm\\\":null,\\\"antialiased\\\":false,\\\"edgeForm\\\":{\\\"color\\\":[\
+102,102,102],\\\"capForm\\\":\\\"Butt\\\",\\\"opacity\\\":1,\\\"thickness\\\":\
+{\\\"absolute\\\":0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"Miter\\\",\\\"d\\\":\
+3.25},\\\"dashing\\\":[]}},{\\\"transform\\\":[1.0,0.0,0.0,1.0,0.0,0.0],\\\"\
+type\\\":\\\"clip\\\",\\\"path\\\":[[66,5],[66,437],[306,437],[306,5]]},{\\\"\
+points\\\":[[83,134],[85.4,134]],\\\"type\\\":\\\"Line\\\",\\\"faceForm\\\":\
+null,\\\"antialiased\\\":false,\\\"edgeForm\\\":{\\\"color\\\":[102,102,102],\
+\\\"capForm\\\":\\\"Butt\\\",\\\"opacity\\\":1,\\\"thickness\\\":{\\\"\
+absolute\\\":0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"Miter\\\",\\\"d\\\":3.25}\
+,\\\"dashing\\\":[]}},{\\\"transform\\\":[1.0,0.0,0.0,1.0,0.0,0.0],\\\"type\\\
+\":\\\"clip\\\",\\\"path\\\":[[66,5],[66,437],[306,437],[306,5]]},{\\\"points\
+\\\":[[83,120.333],[87,120.333]],\\\"type\\\":\\\"Line\\\",\\\"faceForm\\\":\
+null,\\\"antialiased\\\":false,\\\"edgeForm\\\":{\\\"color\\\":[102,102,102],\
+\\\"capForm\\\":\\\"Butt\\\",\\\"opacity\\\":1,\\\"thickness\\\":{\\\"\
+absolute\\\":0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"Miter\\\",\\\"d\\\":3.25}\
+,\\\"dashing\\\":[]}},{\\\"type\\\":\\\"Inset\\\",\\\"metadata\\\":{\\\"\
+localRect\\\":{\\\"left\\\":0,\\\"top\\\":-110,\\\"bottom\\\":-98,\\\"right\\\
+\":14},\\\"transform\\\":[1,0,0,1,66,224]},\\\"boxImageData\\\":{\\\"\
+imageSource\\\":\\\"data:image/png;base64,\
+iVBORw0KGgoAAAANSUhEUgAAAA4AAAAMCAYAAABSgIzaAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAA\
+AOxAAADsQBlSsOGwAAAL1JREFUKJFjYKA3YGRgYGBIS0v7DxOYNWsWI7ICJSWlUGNj4wZeXl6F169f\
+nzl69Gj2u3fvrqCYgmwADLi4uKwSEhLSYWFh4dLT0ysJCQm5jGE9No3IgJ2dXSghIeEDAwMDAxMp/\
+tLW1s5+9OjRNpI0amhopCgrK4cfO3Ysj4GBgYGFGE06Ojr5WlpaGVu2bHH88ePHG6I0GhoaVquqqsZ\
+s2bLF8du3by9g4hjRAQOwaMEmN3/+fF5iXEpdAAANYDwstJ+R4QAAAABJRU5ErkJggg==\\\",\\\"\
+boundingBox\\\":{\\\"width\\\":14,\\\"height\\\":12,\\\"baseline\\\":11}}},{\\\
+\"transform\\\":[1.0,0.0,0.0,1.0,0.0,0.0],\\\"type\\\":\\\"clip\\\",\\\"path\\\
+\":[[66,5],[66,437],[306,437],[306,5]]},{\\\"points\\\":[[83,106.667],[85.4,\
+106.667]],\\\"type\\\":\\\"Line\\\",\\\"faceForm\\\":null,\\\"antialiased\\\":\
+false,\\\"edgeForm\\\":{\\\"color\\\":[102,102,102],\\\"capForm\\\":\\\"Butt\\\
+\",\\\"opacity\\\":1,\\\"thickness\\\":{\\\"absolute\\\":0.5},\\\"joinForm\\\"\
+:{\\\"type\\\":\\\"Miter\\\",\\\"d\\\":3.25},\\\"dashing\\\":[]}},{\\\"\
+transform\\\":[1.0,0.0,0.0,1.0,0.0,0.0],\\\"type\\\":\\\"clip\\\",\\\"path\\\"\
+:[[66,5],[66,437],[306,437],[306,5]]},{\\\"points\\\":[[83,93],[85.4,93]],\\\"\
+type\\\":\\\"Line\\\",\\\"faceForm\\\":null,\\\"antialiased\\\":false,\\\"\
+edgeForm\\\":{\\\"color\\\":[102,102,102],\\\"capForm\\\":\\\"Butt\\\",\\\"\
+opacity\\\":1,\\\"thickness\\\":{\\\"absolute\\\":0.5},\\\"joinForm\\\":{\\\"\
+type\\\":\\\"Miter\\\",\\\"d\\\":3.25},\\\"dashing\\\":[]}},{\\\"transform\\\"\
+:[1.0,0.0,0.0,1.0,0.0,0.0],\\\"type\\\":\\\"clip\\\",\\\"path\\\":[[66,5],[66,\
+437],[306,437],[306,5]]},{\\\"points\\\":[[83,79.3333],[85.4,79.3333]],\\\"\
+type\\\":\\\"Line\\\",\\\"faceForm\\\":null,\\\"antialiased\\\":false,\\\"\
+edgeForm\\\":{\\\"color\\\":[102,102,102],\\\"capForm\\\":\\\"Butt\\\",\\\"\
+opacity\\\":1,\\\"thickness\\\":{\\\"absolute\\\":0.5},\\\"joinForm\\\":{\\\"\
+type\\\":\\\"Miter\\\",\\\"d\\\":3.25},\\\"dashing\\\":[]}},{\\\"transform\\\"\
+:[1.0,0.0,0.0,1.0,0.0,0.0],\\\"type\\\":\\\"clip\\\",\\\"path\\\":[[66,5],[66,\
+437],[306,437],[306,5]]},{\\\"points\\\":[[83,65.6667],[87,65.6667]],\\\"type\
+\\\":\\\"Line\\\",\\\"faceForm\\\":null,\\\"antialiased\\\":false,\\\"\
+edgeForm\\\":{\\\"color\\\":[102,102,102],\\\"capForm\\\":\\\"Butt\\\",\\\"\
+opacity\\\":1,\\\"thickness\\\":{\\\"absolute\\\":0.5},\\\"joinForm\\\":{\\\"\
+type\\\":\\\"Miter\\\",\\\"d\\\":3.25},\\\"dashing\\\":[]}},{\\\"type\\\":\\\"\
+Inset\\\",\\\"metadata\\\":{\\\"localRect\\\":{\\\"left\\\":0,\\\"top\\\":-\
+164,\\\"bottom\\\":-152,\\\"right\\\":14},\\\"transform\\\":[1,0,0,1,66,224]},\
+\\\"boxImageData\\\":{\\\"imageSource\\\":\\\"data:image/png;base64,\
+iVBORw0KGgoAAAANSUhEUgAAAA4AAAAMCAYAAABSgIzaAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAA\
+AOxAAADsQBlSsOGwAAAJ9JREFUKJFjYKA3YGRgYGBIS0v7DxOYNWsWIzaFqqqqMXZ2dnPmzp3LgSGJ\
+bAAyEBUVNfX39z/\
+m6Oi4GCbGRMhJXFxcEra2tjP27t0bzsHBIUyURmZmZnYnJ6flR48ezfny5ctjHh4eOaI02tjYTL916\
+9b8ly9fHmdgYGDg5uaWhcmhBERaWtp/\
+5MDB5WeMAMSlEJs8C7oAjI0rWgYOAAAWcDUNgkdYWQAAAABJRU5ErkJggg==\\\",\\\"\
+boundingBox\\\":{\\\"width\\\":14,\\\"height\\\":12,\\\"baseline\\\":11}}},{\\\
+\"transform\\\":[1.0,0.0,0.0,1.0,0.0,0.0],\\\"type\\\":\\\"clip\\\",\\\"path\\\
+\":[[66,5],[66,437],[306,437],[306,5]]},{\\\"points\\\":[[83,52],[85.4,52]],\\\
+\"type\\\":\\\"Line\\\",\\\"faceForm\\\":null,\\\"antialiased\\\":false,\\\"\
+edgeForm\\\":{\\\"color\\\":[102,102,102],\\\"capForm\\\":\\\"Butt\\\",\\\"\
+opacity\\\":1,\\\"thickness\\\":{\\\"absolute\\\":0.5},\\\"joinForm\\\":{\\\"\
+type\\\":\\\"Miter\\\",\\\"d\\\":3.25},\\\"dashing\\\":[]}},{\\\"transform\\\"\
+:[1.0,0.0,0.0,1.0,0.0,0.0],\\\"type\\\":\\\"clip\\\",\\\"path\\\":[[66,5],[66,\
+437],[306,437],[306,5]]},{\\\"points\\\":[[83,38.3333],[85.4,38.3333]],\\\"\
+type\\\":\\\"Line\\\",\\\"faceForm\\\":null,\\\"antialiased\\\":false,\\\"\
+edgeForm\\\":{\\\"color\\\":[102,102,102],\\\"capForm\\\":\\\"Butt\\\",\\\"\
+opacity\\\":1,\\\"thickness\\\":{\\\"absolute\\\":0.5},\\\"joinForm\\\":{\\\"\
+type\\\":\\\"Miter\\\",\\\"d\\\":3.25},\\\"dashing\\\":[]}},{\\\"transform\\\"\
+:[1.0,0.0,0.0,1.0,0.0,0.0],\\\"type\\\":\\\"clip\\\",\\\"path\\\":[[66,5],[66,\
+437],[306,437],[306,5]]},{\\\"points\\\":[[83,24.6667],[85.4,24.6667]],\\\"\
+type\\\":\\\"Line\\\",\\\"faceForm\\\":null,\\\"antialiased\\\":false,\\\"\
+edgeForm\\\":{\\\"color\\\":[102,102,102],\\\"capForm\\\":\\\"Butt\\\",\\\"\
+opacity\\\":1,\\\"thickness\\\":{\\\"absolute\\\":0.5},\\\"joinForm\\\":{\\\"\
+type\\\":\\\"Miter\\\",\\\"d\\\":3.25},\\\"dashing\\\":[]}},{\\\"transform\\\"\
+:[1.0,0.0,0.0,1.0,0.0,0.0],\\\"type\\\":\\\"clip\\\",\\\"path\\\":[[66,5],[66,\
+437],[306,437],[306,5]]},{\\\"points\\\":[[83,11],[87,11]],\\\"type\\\":\\\"\
+Line\\\",\\\"faceForm\\\":null,\\\"antialiased\\\":false,\\\"edgeForm\\\":{\\\
+\"color\\\":[102,102,102],\\\"capForm\\\":\\\"Butt\\\",\\\"opacity\\\":1,\\\"\
+thickness\\\":{\\\"absolute\\\":0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"Miter\
+\\\",\\\"d\\\":3.25},\\\"dashing\\\":[]}},{\\\"type\\\":\\\"Inset\\\",\\\"\
+metadata\\\":{\\\"localRect\\\":{\\\"left\\\":0,\\\"top\\\":-219,\\\"bottom\\\
+\":-207,\\\"right\\\":14},\\\"transform\\\":[1,0,0,1,66,224]},\\\"\
+boxImageData\\\":{\\\"imageSource\\\":\\\"data:image/png;base64,\
+iVBORw0KGgoAAAANSUhEUgAAAA4AAAAMCAYAAABSgIzaAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAA\
+AOxAAADsQBlSsOGwAAANpJREFUKJFjYKA3YGRgYGBIS0v7DxOYNWsWI7oiHR2dXD09vRIeHh5ZBgYG\
+Rgw1yAbAgKKiYlBERMRtUVFRE0ZGRiaYOAshJ+np6RWfPHmy/\
+PXr12eQxZlwaYABQUFBLSkpKaekpKQvISEhF0VERIyJ0sjExMT64cOHG4sWLRK/\
+cePGHDs7u5lEafzy5cuTmzdvzvvz58/\
+XGzduzBUQENAkSuODBw82aGhoJLOwsHBpaGgkv3v37jIDA5bogAFYkLOxsQk4Ozsvl5KScnj37t2Vg\
+wcPJsE00xcAADDJSx/7QBQZAAAAAElFTkSuQmCC\\\",\\\"boundingBox\\\":{\\\"width\\\"\
+:14,\\\"height\\\":12,\\\"baseline\\\":11}}},{\\\"transform\\\":[1.0,0.0,0.0,\
+1.0,0.0,0.0],\\\"type\\\":\\\"clip\\\",\\\"path\\\":[[66,5],[66,437],[306,437]\
+,[306,5]]},{\\\"points\\\":[[83,11],[83,15]],\\\"type\\\":\\\"Line\\\",\\\"\
+faceForm\\\":null,\\\"antialiased\\\":false,\\\"edgeForm\\\":{\\\"color\\\":[\
+102,102,102],\\\"capForm\\\":\\\"Butt\\\",\\\"opacity\\\":1,\\\"thickness\\\":\
+{\\\"absolute\\\":0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"Miter\\\",\\\"d\\\":\
+3.25},\\\"dashing\\\":[]}},{\\\"transform\\\":[1.0,0.0,0.0,1.0,0.0,0.0],\\\"\
+type\\\":\\\"clip\\\",\\\"path\\\":[[66,5],[66,437],[306,437],[306,5]]},{\\\"\
+points\\\":[[96.6667,11],[96.6667,13.4]],\\\"type\\\":\\\"Line\\\",\\\"\
+faceForm\\\":null,\\\"antialiased\\\":false,\\\"edgeForm\\\":{\\\"color\\\":[\
+102,102,102],\\\"capForm\\\":\\\"Butt\\\",\\\"opacity\\\":1,\\\"thickness\\\":\
+{\\\"absolute\\\":0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"Miter\\\",\\\"d\\\":\
+3.25},\\\"dashing\\\":[]}},{\\\"transform\\\":[1.0,0.0,0.0,1.0,0.0,0.0],\\\"\
+type\\\":\\\"clip\\\",\\\"path\\\":[[66,5],[66,437],[306,437],[306,5]]},{\\\"\
+points\\\":[[110.333,11],[110.333,13.4]],\\\"type\\\":\\\"Line\\\",\\\"\
+faceForm\\\":null,\\\"antialiased\\\":false,\\\"edgeForm\\\":{\\\"color\\\":[\
+102,102,102],\\\"capForm\\\":\\\"Butt\\\",\\\"opacity\\\":1,\\\"thickness\\\":\
+{\\\"absolute\\\":0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"Miter\\\",\\\"d\\\":\
+3.25},\\\"dashing\\\":[]}},{\\\"transform\\\":[1.0,0.0,0.0,1.0,0.0,0.0],\\\"\
+type\\\":\\\"clip\\\",\\\"path\\\":[[66,5],[66,437],[306,437],[306,5]]},{\\\"\
+points\\\":[[124,11],[124,13.4]],\\\"type\\\":\\\"Line\\\",\\\"faceForm\\\":\
+null,\\\"antialiased\\\":false,\\\"edgeForm\\\":{\\\"color\\\":[102,102,102],\
+\\\"capForm\\\":\\\"Butt\\\",\\\"opacity\\\":1,\\\"thickness\\\":{\\\"\
+absolute\\\":0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"Miter\\\",\\\"d\\\":3.25}\
+,\\\"dashing\\\":[]}},{\\\"transform\\\":[1.0,0.0,0.0,1.0,0.0,0.0],\\\"type\\\
+\":\\\"clip\\\",\\\"path\\\":[[66,5],[66,437],[306,437],[306,5]]},{\\\"points\
+\\\":[[137.667,11],[137.667,15]],\\\"type\\\":\\\"Line\\\",\\\"faceForm\\\":\
+null,\\\"antialiased\\\":false,\\\"edgeForm\\\":{\\\"color\\\":[102,102,102],\
+\\\"capForm\\\":\\\"Butt\\\",\\\"opacity\\\":1,\\\"thickness\\\":{\\\"\
+absolute\\\":0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"Miter\\\",\\\"d\\\":3.25}\
+,\\\"dashing\\\":[]}},{\\\"transform\\\":[1.0,0.0,0.0,1.0,0.0,0.0],\\\"type\\\
+\":\\\"clip\\\",\\\"path\\\":[[66,5],[66,437],[306,437],[306,5]]},{\\\"points\
+\\\":[[151.333,11],[151.333,13.4]],\\\"type\\\":\\\"Line\\\",\\\"faceForm\\\":\
+null,\\\"antialiased\\\":false,\\\"edgeForm\\\":{\\\"color\\\":[102,102,102],\
+\\\"capForm\\\":\\\"Butt\\\",\\\"opacity\\\":1,\\\"thickness\\\":{\\\"\
+absolute\\\":0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"Miter\\\",\\\"d\\\":3.25}\
+,\\\"dashing\\\":[]}},{\\\"transform\\\":[1.0,0.0,0.0,1.0,0.0,0.0],\\\"type\\\
+\":\\\"clip\\\",\\\"path\\\":[[66,5],[66,437],[306,437],[306,5]]},{\\\"points\
+\\\":[[165,11],[165,13.4]],\\\"type\\\":\\\"Line\\\",\\\"faceForm\\\":null,\\\
+\"antialiased\\\":false,\\\"edgeForm\\\":{\\\"color\\\":[102,102,102],\\\"\
+capForm\\\":\\\"Butt\\\",\\\"opacity\\\":1,\\\"thickness\\\":{\\\"absolute\\\"\
+:0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"Miter\\\",\\\"d\\\":3.25},\\\"\
+dashing\\\":[]}},{\\\"transform\\\":[1.0,0.0,0.0,1.0,0.0,0.0],\\\"type\\\":\\\
+\"clip\\\",\\\"path\\\":[[66,5],[66,437],[306,437],[306,5]]},{\\\"points\\\":[\
+[178.667,11],[178.667,13.4]],\\\"type\\\":\\\"Line\\\",\\\"faceForm\\\":null,\
+\\\"antialiased\\\":false,\\\"edgeForm\\\":{\\\"color\\\":[102,102,102],\\\"\
+capForm\\\":\\\"Butt\\\",\\\"opacity\\\":1,\\\"thickness\\\":{\\\"absolute\\\"\
+:0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"Miter\\\",\\\"d\\\":3.25},\\\"\
+dashing\\\":[]}},{\\\"transform\\\":[1.0,0.0,0.0,1.0,0.0,0.0],\\\"type\\\":\\\
+\"clip\\\",\\\"path\\\":[[66,5],[66,437],[306,437],[306,5]]},{\\\"points\\\":[\
+[192.333,11],[192.333,15]],\\\"type\\\":\\\"Line\\\",\\\"faceForm\\\":null,\\\
+\"antialiased\\\":false,\\\"edgeForm\\\":{\\\"color\\\":[102,102,102],\\\"\
+capForm\\\":\\\"Butt\\\",\\\"opacity\\\":1,\\\"thickness\\\":{\\\"absolute\\\"\
+:0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"Miter\\\",\\\"d\\\":3.25},\\\"\
+dashing\\\":[]}},{\\\"transform\\\":[1.0,0.0,0.0,1.0,0.0,0.0],\\\"type\\\":\\\
+\"clip\\\",\\\"path\\\":[[66,5],[66,437],[306,437],[306,5]]},{\\\"points\\\":[\
+[206,11],[206,13.4]],\\\"type\\\":\\\"Line\\\",\\\"faceForm\\\":null,\\\"\
+antialiased\\\":false,\\\"edgeForm\\\":{\\\"color\\\":[102,102,102],\\\"\
+capForm\\\":\\\"Butt\\\",\\\"opacity\\\":1,\\\"thickness\\\":{\\\"absolute\\\"\
+:0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"Miter\\\",\\\"d\\\":3.25},\\\"\
+dashing\\\":[]}},{\\\"transform\\\":[1.0,0.0,0.0,1.0,0.0,0.0],\\\"type\\\":\\\
+\"clip\\\",\\\"path\\\":[[66,5],[66,437],[306,437],[306,5]]},{\\\"points\\\":[\
+[219.667,11],[219.667,13.4]],\\\"type\\\":\\\"Line\\\",\\\"faceForm\\\":null,\
+\\\"antialiased\\\":false,\\\"edgeForm\\\":{\\\"color\\\":[102,102,102],\\\"\
+capForm\\\":\\\"Butt\\\",\\\"opacity\\\":1,\\\"thickness\\\":{\\\"absolute\\\"\
+:0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"Miter\\\",\\\"d\\\":3.25},\\\"\
+dashing\\\":[]}},{\\\"transform\\\":[1.0,0.0,0.0,1.0,0.0,0.0],\\\"type\\\":\\\
+\"clip\\\",\\\"path\\\":[[66,5],[66,437],[306,437],[306,5]]},{\\\"points\\\":[\
+[233.333,11],[233.333,13.4]],\\\"type\\\":\\\"Line\\\",\\\"faceForm\\\":null,\
+\\\"antialiased\\\":false,\\\"edgeForm\\\":{\\\"color\\\":[102,102,102],\\\"\
+capForm\\\":\\\"Butt\\\",\\\"opacity\\\":1,\\\"thickness\\\":{\\\"absolute\\\"\
+:0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"Miter\\\",\\\"d\\\":3.25},\\\"\
+dashing\\\":[]}},{\\\"transform\\\":[1.0,0.0,0.0,1.0,0.0,0.0],\\\"type\\\":\\\
+\"clip\\\",\\\"path\\\":[[66,5],[66,437],[306,437],[306,5]]},{\\\"points\\\":[\
+[247,11],[247,15]],\\\"type\\\":\\\"Line\\\",\\\"faceForm\\\":null,\\\"\
+antialiased\\\":false,\\\"edgeForm\\\":{\\\"color\\\":[102,102,102],\\\"\
+capForm\\\":\\\"Butt\\\",\\\"opacity\\\":1,\\\"thickness\\\":{\\\"absolute\\\"\
+:0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"Miter\\\",\\\"d\\\":3.25},\\\"\
+dashing\\\":[]}},{\\\"transform\\\":[1.0,0.0,0.0,1.0,0.0,0.0],\\\"type\\\":\\\
+\"clip\\\",\\\"path\\\":[[66,5],[66,437],[306,437],[306,5]]},{\\\"points\\\":[\
+[260.667,11],[260.667,13.4]],\\\"type\\\":\\\"Line\\\",\\\"faceForm\\\":null,\
+\\\"antialiased\\\":false,\\\"edgeForm\\\":{\\\"color\\\":[102,102,102],\\\"\
+capForm\\\":\\\"Butt\\\",\\\"opacity\\\":1,\\\"thickness\\\":{\\\"absolute\\\"\
+:0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"Miter\\\",\\\"d\\\":3.25},\\\"\
+dashing\\\":[]}},{\\\"transform\\\":[1.0,0.0,0.0,1.0,0.0,0.0],\\\"type\\\":\\\
+\"clip\\\",\\\"path\\\":[[66,5],[66,437],[306,437],[306,5]]},{\\\"points\\\":[\
+[274.333,11],[274.333,13.4]],\\\"type\\\":\\\"Line\\\",\\\"faceForm\\\":null,\
+\\\"antialiased\\\":false,\\\"edgeForm\\\":{\\\"color\\\":[102,102,102],\\\"\
+capForm\\\":\\\"Butt\\\",\\\"opacity\\\":1,\\\"thickness\\\":{\\\"absolute\\\"\
+:0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"Miter\\\",\\\"d\\\":3.25},\\\"\
+dashing\\\":[]}},{\\\"transform\\\":[1.0,0.0,0.0,1.0,0.0,0.0],\\\"type\\\":\\\
+\"clip\\\",\\\"path\\\":[[66,5],[66,437],[306,437],[306,5]]},{\\\"points\\\":[\
+[288,11],[288,13.4]],\\\"type\\\":\\\"Line\\\",\\\"faceForm\\\":null,\\\"\
+antialiased\\\":false,\\\"edgeForm\\\":{\\\"color\\\":[102,102,102],\\\"\
+capForm\\\":\\\"Butt\\\",\\\"opacity\\\":1,\\\"thickness\\\":{\\\"absolute\\\"\
+:0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"Miter\\\",\\\"d\\\":3.25},\\\"\
+dashing\\\":[]}},{\\\"transform\\\":[1.0,0.0,0.0,1.0,0.0,0.0],\\\"type\\\":\\\
+\"clip\\\",\\\"path\\\":[[66,5],[66,437],[306,437],[306,5]]},{\\\"points\\\":[\
+[301.667,11],[301.667,15]],\\\"type\\\":\\\"Line\\\",\\\"faceForm\\\":null,\\\
+\"antialiased\\\":false,\\\"edgeForm\\\":{\\\"color\\\":[102,102,102],\\\"\
+capForm\\\":\\\"Butt\\\",\\\"opacity\\\":1,\\\"thickness\\\":{\\\"absolute\\\"\
+:0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"Miter\\\",\\\"d\\\":3.25},\\\"\
+dashing\\\":[]}},{\\\"transform\\\":[1.0,0.0,0.0,1.0,0.0,0.0],\\\"type\\\":\\\
+\"clip\\\",\\\"path\\\":[[66,5],[66,437],[306,437],[306,5]]},{\\\"points\\\":[\
+[301.667,421],[299.267,421]],\\\"type\\\":\\\"Line\\\",\\\"faceForm\\\":null,\
+\\\"antialiased\\\":false,\\\"edgeForm\\\":{\\\"color\\\":[102,102,102],\\\"\
+capForm\\\":\\\"Butt\\\",\\\"opacity\\\":1,\\\"thickness\\\":{\\\"absolute\\\"\
+:0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"Miter\\\",\\\"d\\\":3.25},\\\"\
+dashing\\\":[]}},{\\\"transform\\\":[1.0,0.0,0.0,1.0,0.0,0.0],\\\"type\\\":\\\
+\"clip\\\",\\\"path\\\":[[66,5],[66,437],[306,437],[306,5]]},{\\\"points\\\":[\
+[301.667,407.333],[299.267,407.333]],\\\"type\\\":\\\"Line\\\",\\\"faceForm\\\
+\":null,\\\"antialiased\\\":false,\\\"edgeForm\\\":{\\\"color\\\":[102,102,\
+102],\\\"capForm\\\":\\\"Butt\\\",\\\"opacity\\\":1,\\\"thickness\\\":{\\\"\
+absolute\\\":0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"Miter\\\",\\\"d\\\":3.25}\
+,\\\"dashing\\\":[]}},{\\\"transform\\\":[1.0,0.0,0.0,1.0,0.0,0.0],\\\"type\\\
+\":\\\"clip\\\",\\\"path\\\":[[66,5],[66,437],[306,437],[306,5]]},{\\\"points\
+\\\":[[301.667,393.667],[297.667,393.667]],\\\"type\\\":\\\"Line\\\",\\\"\
+faceForm\\\":null,\\\"antialiased\\\":false,\\\"edgeForm\\\":{\\\"color\\\":[\
+102,102,102],\\\"capForm\\\":\\\"Butt\\\",\\\"opacity\\\":1,\\\"thickness\\\":\
+{\\\"absolute\\\":0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"Miter\\\",\\\"d\\\":\
+3.25},\\\"dashing\\\":[]}},{\\\"transform\\\":[1.0,0.0,0.0,1.0,0.0,0.0],\\\"\
+type\\\":\\\"clip\\\",\\\"path\\\":[[66,5],[66,437],[306,437],[306,5]]},{\\\"\
+points\\\":[[301.667,380],[299.267,380]],\\\"type\\\":\\\"Line\\\",\\\"\
+faceForm\\\":null,\\\"antialiased\\\":false,\\\"edgeForm\\\":{\\\"color\\\":[\
+102,102,102],\\\"capForm\\\":\\\"Butt\\\",\\\"opacity\\\":1,\\\"thickness\\\":\
+{\\\"absolute\\\":0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"Miter\\\",\\\"d\\\":\
+3.25},\\\"dashing\\\":[]}},{\\\"transform\\\":[1.0,0.0,0.0,1.0,0.0,0.0],\\\"\
+type\\\":\\\"clip\\\",\\\"path\\\":[[66,5],[66,437],[306,437],[306,5]]},{\\\"\
+points\\\":[[301.667,366.333],[299.267,366.333]],\\\"type\\\":\\\"Line\\\",\\\
+\"faceForm\\\":null,\\\"antialiased\\\":false,\\\"edgeForm\\\":{\\\"color\\\":\
+[102,102,102],\\\"capForm\\\":\\\"Butt\\\",\\\"opacity\\\":1,\\\"thickness\\\"\
+:{\\\"absolute\\\":0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"Miter\\\",\\\"d\\\"\
+:3.25},\\\"dashing\\\":[]}},{\\\"transform\\\":[1.0,0.0,0.0,1.0,0.0,0.0],\\\"\
+type\\\":\\\"clip\\\",\\\"path\\\":[[66,5],[66,437],[306,437],[306,5]]},{\\\"\
+points\\\":[[301.667,352.667],[299.267,352.667]],\\\"type\\\":\\\"Line\\\",\\\
+\"faceForm\\\":null,\\\"antialiased\\\":false,\\\"edgeForm\\\":{\\\"color\\\":\
+[102,102,102],\\\"capForm\\\":\\\"Butt\\\",\\\"opacity\\\":1,\\\"thickness\\\"\
+:{\\\"absolute\\\":0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"Miter\\\",\\\"d\\\"\
+:3.25},\\\"dashing\\\":[]}},{\\\"transform\\\":[1.0,0.0,0.0,1.0,0.0,0.0],\\\"\
+type\\\":\\\"clip\\\",\\\"path\\\":[[66,5],[66,437],[306,437],[306,5]]},{\\\"\
+points\\\":[[301.667,339],[297.667,339]],\\\"type\\\":\\\"Line\\\",\\\"\
+faceForm\\\":null,\\\"antialiased\\\":false,\\\"edgeForm\\\":{\\\"color\\\":[\
+102,102,102],\\\"capForm\\\":\\\"Butt\\\",\\\"opacity\\\":1,\\\"thickness\\\":\
+{\\\"absolute\\\":0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"Miter\\\",\\\"d\\\":\
+3.25},\\\"dashing\\\":[]}},{\\\"transform\\\":[1.0,0.0,0.0,1.0,0.0,0.0],\\\"\
+type\\\":\\\"clip\\\",\\\"path\\\":[[66,5],[66,437],[306,437],[306,5]]},{\\\"\
+points\\\":[[301.667,325.333],[299.267,325.333]],\\\"type\\\":\\\"Line\\\",\\\
+\"faceForm\\\":null,\\\"antialiased\\\":false,\\\"edgeForm\\\":{\\\"color\\\":\
+[102,102,102],\\\"capForm\\\":\\\"Butt\\\",\\\"opacity\\\":1,\\\"thickness\\\"\
+:{\\\"absolute\\\":0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"Miter\\\",\\\"d\\\"\
+:3.25},\\\"dashing\\\":[]}},{\\\"transform\\\":[1.0,0.0,0.0,1.0,0.0,0.0],\\\"\
+type\\\":\\\"clip\\\",\\\"path\\\":[[66,5],[66,437],[306,437],[306,5]]},{\\\"\
+points\\\":[[301.667,311.667],[299.267,311.667]],\\\"type\\\":\\\"Line\\\",\\\
+\"faceForm\\\":null,\\\"antialiased\\\":false,\\\"edgeForm\\\":{\\\"color\\\":\
+[102,102,102],\\\"capForm\\\":\\\"Butt\\\",\\\"opacity\\\":1,\\\"thickness\\\"\
+:{\\\"absolute\\\":0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"Miter\\\",\\\"d\\\"\
+:3.25},\\\"dashing\\\":[]}},{\\\"transform\\\":[1.0,0.0,0.0,1.0,0.0,0.0],\\\"\
+type\\\":\\\"clip\\\",\\\"path\\\":[[66,5],[66,437],[306,437],[306,5]]},{\\\"\
+points\\\":[[301.667,298],[299.267,298]],\\\"type\\\":\\\"Line\\\",\\\"\
+faceForm\\\":null,\\\"antialiased\\\":false,\\\"edgeForm\\\":{\\\"color\\\":[\
+102,102,102],\\\"capForm\\\":\\\"Butt\\\",\\\"opacity\\\":1,\\\"thickness\\\":\
+{\\\"absolute\\\":0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"Miter\\\",\\\"d\\\":\
+3.25},\\\"dashing\\\":[]}},{\\\"transform\\\":[1.0,0.0,0.0,1.0,0.0,0.0],\\\"\
+type\\\":\\\"clip\\\",\\\"path\\\":[[66,5],[66,437],[306,437],[306,5]]},{\\\"\
+points\\\":[[301.667,284.333],[297.667,284.333]],\\\"type\\\":\\\"Line\\\",\\\
+\"faceForm\\\":null,\\\"antialiased\\\":false,\\\"edgeForm\\\":{\\\"color\\\":\
+[102,102,102],\\\"capForm\\\":\\\"Butt\\\",\\\"opacity\\\":1,\\\"thickness\\\"\
+:{\\\"absolute\\\":0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"Miter\\\",\\\"d\\\"\
+:3.25},\\\"dashing\\\":[]}},{\\\"transform\\\":[1.0,0.0,0.0,1.0,0.0,0.0],\\\"\
+type\\\":\\\"clip\\\",\\\"path\\\":[[66,5],[66,437],[306,437],[306,5]]},{\\\"\
+points\\\":[[301.667,270.667],[299.267,270.667]],\\\"type\\\":\\\"Line\\\",\\\
+\"faceForm\\\":null,\\\"antialiased\\\":false,\\\"edgeForm\\\":{\\\"color\\\":\
+[102,102,102],\\\"capForm\\\":\\\"Butt\\\",\\\"opacity\\\":1,\\\"thickness\\\"\
+:{\\\"absolute\\\":0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"Miter\\\",\\\"d\\\"\
+:3.25},\\\"dashing\\\":[]}},{\\\"transform\\\":[1.0,0.0,0.0,1.0,0.0,0.0],\\\"\
+type\\\":\\\"clip\\\",\\\"path\\\":[[66,5],[66,437],[306,437],[306,5]]},{\\\"\
+points\\\":[[301.667,257],[299.267,257]],\\\"type\\\":\\\"Line\\\",\\\"\
+faceForm\\\":null,\\\"antialiased\\\":false,\\\"edgeForm\\\":{\\\"color\\\":[\
+102,102,102],\\\"capForm\\\":\\\"Butt\\\",\\\"opacity\\\":1,\\\"thickness\\\":\
+{\\\"absolute\\\":0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"Miter\\\",\\\"d\\\":\
+3.25},\\\"dashing\\\":[]}},{\\\"transform\\\":[1.0,0.0,0.0,1.0,0.0,0.0],\\\"\
+type\\\":\\\"clip\\\",\\\"path\\\":[[66,5],[66,437],[306,437],[306,5]]},{\\\"\
+points\\\":[[301.667,243.333],[299.267,243.333]],\\\"type\\\":\\\"Line\\\",\\\
+\"faceForm\\\":null,\\\"antialiased\\\":false,\\\"edgeForm\\\":{\\\"color\\\":\
+[102,102,102],\\\"capForm\\\":\\\"Butt\\\",\\\"opacity\\\":1,\\\"thickness\\\"\
+:{\\\"absolute\\\":0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"Miter\\\",\\\"d\\\"\
+:3.25},\\\"dashing\\\":[]}},{\\\"transform\\\":[1.0,0.0,0.0,1.0,0.0,0.0],\\\"\
+type\\\":\\\"clip\\\",\\\"path\\\":[[66,5],[66,437],[306,437],[306,5]]},{\\\"\
+points\\\":[[301.667,229.667],[297.667,229.667]],\\\"type\\\":\\\"Line\\\",\\\
+\"faceForm\\\":null,\\\"antialiased\\\":false,\\\"edgeForm\\\":{\\\"color\\\":\
+[102,102,102],\\\"capForm\\\":\\\"Butt\\\",\\\"opacity\\\":1,\\\"thickness\\\"\
+:{\\\"absolute\\\":0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"Miter\\\",\\\"d\\\"\
+:3.25},\\\"dashing\\\":[]}},{\\\"transform\\\":[1.0,0.0,0.0,1.0,0.0,0.0],\\\"\
+type\\\":\\\"clip\\\",\\\"path\\\":[[66,5],[66,437],[306,437],[306,5]]},{\\\"\
+points\\\":[[301.667,216],[299.267,216]],\\\"type\\\":\\\"Line\\\",\\\"\
+faceForm\\\":null,\\\"antialiased\\\":false,\\\"edgeForm\\\":{\\\"color\\\":[\
+102,102,102],\\\"capForm\\\":\\\"Butt\\\",\\\"opacity\\\":1,\\\"thickness\\\":\
+{\\\"absolute\\\":0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"Miter\\\",\\\"d\\\":\
+3.25},\\\"dashing\\\":[]}},{\\\"transform\\\":[1.0,0.0,0.0,1.0,0.0,0.0],\\\"\
+type\\\":\\\"clip\\\",\\\"path\\\":[[66,5],[66,437],[306,437],[306,5]]},{\\\"\
+points\\\":[[301.667,202.333],[299.267,202.333]],\\\"type\\\":\\\"Line\\\",\\\
+\"faceForm\\\":null,\\\"antialiased\\\":false,\\\"edgeForm\\\":{\\\"color\\\":\
+[102,102,102],\\\"capForm\\\":\\\"Butt\\\",\\\"opacity\\\":1,\\\"thickness\\\"\
+:{\\\"absolute\\\":0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"Miter\\\",\\\"d\\\"\
+:3.25},\\\"dashing\\\":[]}},{\\\"transform\\\":[1.0,0.0,0.0,1.0,0.0,0.0],\\\"\
+type\\\":\\\"clip\\\",\\\"path\\\":[[66,5],[66,437],[306,437],[306,5]]},{\\\"\
+points\\\":[[301.667,188.667],[299.267,188.667]],\\\"type\\\":\\\"Line\\\",\\\
+\"faceForm\\\":null,\\\"antialiased\\\":false,\\\"edgeForm\\\":{\\\"color\\\":\
+[102,102,102],\\\"capForm\\\":\\\"Butt\\\",\\\"opacity\\\":1,\\\"thickness\\\"\
+:{\\\"absolute\\\":0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"Miter\\\",\\\"d\\\"\
+:3.25},\\\"dashing\\\":[]}},{\\\"transform\\\":[1.0,0.0,0.0,1.0,0.0,0.0],\\\"\
+type\\\":\\\"clip\\\",\\\"path\\\":[[66,5],[66,437],[306,437],[306,5]]},{\\\"\
+points\\\":[[301.667,175],[297.667,175]],\\\"type\\\":\\\"Line\\\",\\\"\
+faceForm\\\":null,\\\"antialiased\\\":false,\\\"edgeForm\\\":{\\\"color\\\":[\
+102,102,102],\\\"capForm\\\":\\\"Butt\\\",\\\"opacity\\\":1,\\\"thickness\\\":\
+{\\\"absolute\\\":0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"Miter\\\",\\\"d\\\":\
+3.25},\\\"dashing\\\":[]}},{\\\"transform\\\":[1.0,0.0,0.0,1.0,0.0,0.0],\\\"\
+type\\\":\\\"clip\\\",\\\"path\\\":[[66,5],[66,437],[306,437],[306,5]]},{\\\"\
+points\\\":[[301.667,161.333],[299.267,161.333]],\\\"type\\\":\\\"Line\\\",\\\
+\"faceForm\\\":null,\\\"antialiased\\\":false,\\\"edgeForm\\\":{\\\"color\\\":\
+[102,102,102],\\\"capForm\\\":\\\"Butt\\\",\\\"opacity\\\":1,\\\"thickness\\\"\
+:{\\\"absolute\\\":0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"Miter\\\",\\\"d\\\"\
+:3.25},\\\"dashing\\\":[]}},{\\\"transform\\\":[1.0,0.0,0.0,1.0,0.0,0.0],\\\"\
+type\\\":\\\"clip\\\",\\\"path\\\":[[66,5],[66,437],[306,437],[306,5]]},{\\\"\
+points\\\":[[301.667,147.667],[299.267,147.667]],\\\"type\\\":\\\"Line\\\",\\\
+\"faceForm\\\":null,\\\"antialiased\\\":false,\\\"edgeForm\\\":{\\\"color\\\":\
+[102,102,102],\\\"capForm\\\":\\\"Butt\\\",\\\"opacity\\\":1,\\\"thickness\\\"\
+:{\\\"absolute\\\":0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"Miter\\\",\\\"d\\\"\
+:3.25},\\\"dashing\\\":[]}},{\\\"transform\\\":[1.0,0.0,0.0,1.0,0.0,0.0],\\\"\
+type\\\":\\\"clip\\\",\\\"path\\\":[[66,5],[66,437],[306,437],[306,5]]},{\\\"\
+points\\\":[[301.667,134],[299.267,134]],\\\"type\\\":\\\"Line\\\",\\\"\
+faceForm\\\":null,\\\"antialiased\\\":false,\\\"edgeForm\\\":{\\\"color\\\":[\
+102,102,102],\\\"capForm\\\":\\\"Butt\\\",\\\"opacity\\\":1,\\\"thickness\\\":\
+{\\\"absolute\\\":0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"Miter\\\",\\\"d\\\":\
+3.25},\\\"dashing\\\":[]}},{\\\"transform\\\":[1.0,0.0,0.0,1.0,0.0,0.0],\\\"\
+type\\\":\\\"clip\\\",\\\"path\\\":[[66,5],[66,437],[306,437],[306,5]]},{\\\"\
+points\\\":[[301.667,120.333],[297.667,120.333]],\\\"type\\\":\\\"Line\\\",\\\
+\"faceForm\\\":null,\\\"antialiased\\\":false,\\\"edgeForm\\\":{\\\"color\\\":\
+[102,102,102],\\\"capForm\\\":\\\"Butt\\\",\\\"opacity\\\":1,\\\"thickness\\\"\
+:{\\\"absolute\\\":0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"Miter\\\",\\\"d\\\"\
+:3.25},\\\"dashing\\\":[]}},{\\\"transform\\\":[1.0,0.0,0.0,1.0,0.0,0.0],\\\"\
+type\\\":\\\"clip\\\",\\\"path\\\":[[66,5],[66,437],[306,437],[306,5]]},{\\\"\
+points\\\":[[301.667,106.667],[299.267,106.667]],\\\"type\\\":\\\"Line\\\",\\\
+\"faceForm\\\":null,\\\"antialiased\\\":false,\\\"edgeForm\\\":{\\\"color\\\":\
+[102,102,102],\\\"capForm\\\":\\\"Butt\\\",\\\"opacity\\\":1,\\\"thickness\\\"\
+:{\\\"absolute\\\":0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"Miter\\\",\\\"d\\\"\
+:3.25},\\\"dashing\\\":[]}},{\\\"transform\\\":[1.0,0.0,0.0,1.0,0.0,0.0],\\\"\
+type\\\":\\\"clip\\\",\\\"path\\\":[[66,5],[66,437],[306,437],[306,5]]},{\\\"\
+points\\\":[[301.667,93],[299.267,93]],\\\"type\\\":\\\"Line\\\",\\\"faceForm\
+\\\":null,\\\"antialiased\\\":false,\\\"edgeForm\\\":{\\\"color\\\":[102,102,\
+102],\\\"capForm\\\":\\\"Butt\\\",\\\"opacity\\\":1,\\\"thickness\\\":{\\\"\
+absolute\\\":0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"Miter\\\",\\\"d\\\":3.25}\
+,\\\"dashing\\\":[]}},{\\\"transform\\\":[1.0,0.0,0.0,1.0,0.0,0.0],\\\"type\\\
+\":\\\"clip\\\",\\\"path\\\":[[66,5],[66,437],[306,437],[306,5]]},{\\\"points\
+\\\":[[301.667,79.3333],[299.267,79.3333]],\\\"type\\\":\\\"Line\\\",\\\"\
+faceForm\\\":null,\\\"antialiased\\\":false,\\\"edgeForm\\\":{\\\"color\\\":[\
+102,102,102],\\\"capForm\\\":\\\"Butt\\\",\\\"opacity\\\":1,\\\"thickness\\\":\
+{\\\"absolute\\\":0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"Miter\\\",\\\"d\\\":\
+3.25},\\\"dashing\\\":[]}},{\\\"transform\\\":[1.0,0.0,0.0,1.0,0.0,0.0],\\\"\
+type\\\":\\\"clip\\\",\\\"path\\\":[[66,5],[66,437],[306,437],[306,5]]},{\\\"\
+points\\\":[[301.667,65.6667],[297.667,65.6667]],\\\"type\\\":\\\"Line\\\",\\\
+\"faceForm\\\":null,\\\"antialiased\\\":false,\\\"edgeForm\\\":{\\\"color\\\":\
+[102,102,102],\\\"capForm\\\":\\\"Butt\\\",\\\"opacity\\\":1,\\\"thickness\\\"\
+:{\\\"absolute\\\":0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"Miter\\\",\\\"d\\\"\
+:3.25},\\\"dashing\\\":[]}},{\\\"transform\\\":[1.0,0.0,0.0,1.0,0.0,0.0],\\\"\
+type\\\":\\\"clip\\\",\\\"path\\\":[[66,5],[66,437],[306,437],[306,5]]},{\\\"\
+points\\\":[[301.667,52],[299.267,52]],\\\"type\\\":\\\"Line\\\",\\\"faceForm\
+\\\":null,\\\"antialiased\\\":false,\\\"edgeForm\\\":{\\\"color\\\":[102,102,\
+102],\\\"capForm\\\":\\\"Butt\\\",\\\"opacity\\\":1,\\\"thickness\\\":{\\\"\
+absolute\\\":0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"Miter\\\",\\\"d\\\":3.25}\
+,\\\"dashing\\\":[]}},{\\\"transform\\\":[1.0,0.0,0.0,1.0,0.0,0.0],\\\"type\\\
+\":\\\"clip\\\",\\\"path\\\":[[66,5],[66,437],[306,437],[306,5]]},{\\\"points\
+\\\":[[301.667,38.3333],[299.267,38.3333]],\\\"type\\\":\\\"Line\\\",\\\"\
+faceForm\\\":null,\\\"antialiased\\\":false,\\\"edgeForm\\\":{\\\"color\\\":[\
+102,102,102],\\\"capForm\\\":\\\"Butt\\\",\\\"opacity\\\":1,\\\"thickness\\\":\
+{\\\"absolute\\\":0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"Miter\\\",\\\"d\\\":\
+3.25},\\\"dashing\\\":[]}},{\\\"transform\\\":[1.0,0.0,0.0,1.0,0.0,0.0],\\\"\
+type\\\":\\\"clip\\\",\\\"path\\\":[[66,5],[66,437],[306,437],[306,5]]},{\\\"\
+points\\\":[[301.667,24.6667],[299.267,24.6667]],\\\"type\\\":\\\"Line\\\",\\\
+\"faceForm\\\":null,\\\"antialiased\\\":false,\\\"edgeForm\\\":{\\\"color\\\":\
+[102,102,102],\\\"capForm\\\":\\\"Butt\\\",\\\"opacity\\\":1,\\\"thickness\\\"\
+:{\\\"absolute\\\":0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"Miter\\\",\\\"d\\\"\
+:3.25},\\\"dashing\\\":[]}},{\\\"transform\\\":[1.0,0.0,0.0,1.0,0.0,0.0],\\\"\
+type\\\":\\\"clip\\\",\\\"path\\\":[[66,5],[66,437],[306,437],[306,5]]},{\\\"\
+points\\\":[[301.667,11],[297.667,11]],\\\"type\\\":\\\"Line\\\",\\\"faceForm\
+\\\":null,\\\"antialiased\\\":false,\\\"edgeForm\\\":{\\\"color\\\":[102,102,\
+102],\\\"capForm\\\":\\\"Butt\\\",\\\"opacity\\\":1,\\\"thickness\\\":{\\\"\
+absolute\\\":0.5},\\\"joinForm\\\":{\\\"type\\\":\\\"Miter\\\",\\\"d\\\":3.25}\
+,\\\"dashing\\\":[]}}],\\\"metadata\\\":\\\"TBD\\\"},{\\\"type\\\":\\\"Group\\\
+\",\\\"name\\\":\\\"Axes\\\",\\\"primitives\\\":[],\\\"metadata\\\":\\\"TBD\\\
+\"}],\\\"height\\\":432.0,\\\"PlotRange\\\":{\\\"left\\\":17.0,\\\"top\\\":-\
+213.0,\\\"bottom\\\":197.0,\\\"right\\\":235.667}}\",\"debug\":false,\"\
+originalExpression\":\"\\\"1:\
+eJx9U0mP0zAUDgzrgGCQ5ozg3EOSdqYLUlXSdF9I0mZagrikiZOaZsNJ2rR/hzt/hysIcUJC/\
+ALAdlvaZhZLfnqbP9vfe+/lxB9YDxmGCR9h0UR6MIVGWPUT64g472DRg2FkMTdYtw8seo6IVgzQx/\
+Lxl0/BjwrK0fV9p1i3SN59esoD5ELqeIKF6LsBAmEIzJoe6cO/2PWe48/\
+xzvKvQGdpcmq9a3OCUjWFKf9uMJl0WuJiBpV2r3MmsIaoq0tRk3IjWWt3JP/\
+CmgbOaNZnP2xRWJ6rv2X7+Z5ShJl5AVjJubysm/\
+FZaXyBspoTDllzzLndYYGdGL660tDMYrVhye23qlsMo6aGKwVJudxoUXDnGl/\
+Mg8VI1WAyX4wLrWIvn4kyRSXKdCWtplkiG+\
+cz0koSw7HV2GLIYNXg1FqcKF52CNxSa96WnIFS6Nnl8jbnBVk7igexA2iphDAARjTQI+ivo/\
+eweCPqxhSs7Qckm4Q93YFPsQGJBzF0/amkIIkiJJh0oqgoBqn48SYuIWhD77DkkNkB/04D38VKA+\
+kuuA6ZNJ/s+Pgrng1SvXT5GvqJlJ80Djw58FPkZ/vIogODAHr2dc842U+\
+WddPEuYf30JcKceS7mFXj0EqBkVrIyHd8OzVGR/\
+8r06yKOI4QHg88Iz8r6PRz89vq9FeFfmeN95gk4irjJzl0RK7gg7nEx6YSXyt7nNyMtDnx/\
+PUVaJRwivQP3zT98Q==\\\"\"},\"setupfunction\":\"initGraphics\"}"}]], "Output",
+ CellChangeTimes->{{3.5141018784611197`*^9, 3.514101898741147*^9}, 
+   3.5141019291331863`*^9, {3.5141019687381463`*^9, 
+   3.5141020257968516`*^9}},ExpressionUUID->"f0ba988a-7ca8-48b6-b435-\
+f185c63aafed"],
+
+Cell["\<\
+We can code the logic of his walk quite easily using separate rules for each \
+case. Firstly, if he is ever on the 16th step or already on the ship then he \
+is automatically on the ship next time.\
+\>", "Text",ExpressionUUID->"a2b59bc0-6b09-4c85-bd4a-d0490d965760"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"step", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"x_", ",", "16"}], "}"}], "|", "Ship"}], "]"}], ":=", "Ship"}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.5140902825382624`*^9, 3.514090335393339*^9}, {
+   3.5140903759128613`*^9, 3.514090490953267*^9}, {3.514090571016343*^9, 
+   3.514090572298856*^9}, {3.514095593901722*^9, 3.5140955965919905`*^9}, 
+   3.514096169082234*^9, {3.5140962049318185`*^9, 3.514096205113837*^9}, {
+   3.5140963022025447`*^9, 3.514096337289053*^9}, {3.5140964872970524`*^9, 
+   3.514096487356058*^9}, 3.5140968603463535`*^9, {3.514096910827401*^9, 
+   3.5140969108814063`*^9}, {3.5140975424835606`*^9, 
+   3.5140975425765696`*^9}, {3.5140976688761983`*^9, 
+   3.5140976691072216`*^9}, {3.514098025134821*^9, 3.5140980635956664`*^9}, {
+   3.5140981046307697`*^9, 3.5140981068539915`*^9}, {3.514101211516932*^9, 
+   3.514101233325932*^9}},
+ CellLabel->"In[11]:=",ExpressionUUID->"fa5cf092-b9ad-43ac-a76a-f99a1ca731ea"],
+
+Cell["\<\
+If he is ever out-of bounds of the plank, at position 0 or 8, then he falls \
+in the water, and stays there\
+\>", "Text",
+ CellChangeTimes->{{3.5141012364859324`*^9, 
+  3.514101267923932*^9}},ExpressionUUID->"5e448fbf-fd62-4937-b3af-\
+26a9ce67d784"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"step", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"0", ",", "y_"}], "}"}], "|", 
+     RowBox[{"{", 
+      RowBox[{"8", ",", "y_"}], "}"}], "|", "Splash"}], "]"}], ":=", 
+   "Splash"}], ";"}]], "Input",
+ CellChangeTimes->{{3.5140902825382624`*^9, 3.514090335393339*^9}, {
+   3.5140903759128613`*^9, 3.514090490953267*^9}, {3.514090571016343*^9, 
+   3.514090572298856*^9}, {3.514095593901722*^9, 3.5140955965919905`*^9}, 
+   3.514096169082234*^9, {3.5140962049318185`*^9, 3.514096205113837*^9}, {
+   3.5140963022025447`*^9, 3.514096337289053*^9}, {3.5140964872970524`*^9, 
+   3.514096487356058*^9}, 3.5140968603463535`*^9, {3.514096910827401*^9, 
+   3.5140969108814063`*^9}, {3.5140975424835606`*^9, 
+   3.5140975425765696`*^9}, {3.5140976688761983`*^9, 
+   3.5140976691072216`*^9}, {3.514098025134821*^9, 3.5140980635956664`*^9}, {
+   3.5140981046307697`*^9, 3.5140981068539915`*^9}, {3.514101211516932*^9, 
+   3.514101233325932*^9}, 3.514101276011932*^9},
+ CellLabel->"In[12]:=",ExpressionUUID->"74993fb5-924b-4121-a186-7553b668bf35"],
+
+Cell["\<\
+And finally all other cases, he steps to one of four new positions.\
+\>", "Text",
+ CellChangeTimes->{{3.514101278555135*^9, 
+  3.5141013134536247`*^9}},ExpressionUUID->"6f825157-9b4b-495b-a939-\
+309a3f90d4fb"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"step", "[", 
+    RowBox[{"{", 
+     RowBox[{"x_", ",", "y_"}], "}"}], "]"}], ":=", 
+   RowBox[{"RandomChoice", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"x", ",", "y"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"x", "+", "1"}], ",", "y"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"x", "-", "1"}], ",", "y"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"x", ",", 
+        RowBox[{"y", "+", "1"}]}], "}"}]}], "}"}], "]"}]}], ";"}]], "Input",
+ CellLabel->"In[13]:=",ExpressionUUID->"f3f68338-e5db-4300-ad99-a3008904d65d"],
+
+Cell["\<\
+To simulate an entire journey we repeatedly step until he reaches one of then \
+named locations, then return that location.\
+\>", "Text",
+ CellChangeTimes->{{3.5141013348057594`*^9, 3.514101368799158*^9}, {
+  3.5141014331065884`*^9, 3.514101440482326*^9}, {3.514101568465123*^9, 
+  3.514101574152692*^9}},ExpressionUUID->"bb376dd0-0e9b-4795-b419-\
+bedec40e3bcc"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"simulation", "[", "start_List", "]"}], ":=", 
+  RowBox[{"Block", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"pos", "=", "start"}], "}"}], ",", 
+    RowBox[{
+     RowBox[{"While", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Head", "[", "pos", "]"}], "===", "List"}], ",", 
+       RowBox[{"pos", "=", 
+        RowBox[{"step", "[", "pos", "]"}]}]}], "]"}], ";", "pos"}]}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.5141013849597745`*^9, 3.5141014443167095`*^9}, {
+  3.51410153783106*^9, 3.514101564575734*^9}},
+ CellLabel->"In[21]:=",ExpressionUUID->"d44aa427-af2b-423c-ae98-a753d3d81de2"],
+
+Cell["\<\
+Now we can run that simulation, I am going to generously assume that the \
+concierge of the Monte Carlo casino, where he has been drinking all night, \
+places him in the middle of the end of the plank before leaving him.\
+\>", "Text",
+ CellChangeTimes->{{3.5141015801212883`*^9, 3.514101660037279*^9}, {
+  3.5141047975420833`*^9, 
+  3.5141048320570574`*^9}},ExpressionUUID->"4fa0eaf0-e872-4e2f-8fe8-\
+23cd9b718fff"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"simulation", "[", 
+  RowBox[{"{", 
+   RowBox[{"4", ",", "1"}], "}"}], "]"}]], "Input",
+ CellChangeTimes->{{3.514101501680445*^9, 3.5141015102863054`*^9}},
+ CellLabel->"In[23]:=",ExpressionUUID->"a03bb64b-fb4a-4471-8dbe-f38bcdbbc1d0"],
+
+Cell[BoxData["Splash"], "Output",
+ CellLabel->"Out[23]=",ExpressionUUID->"af06949c-db79-4789-b5b6-c8c839a74b38"]
+}, Open  ]],
+
+Cell["\<\
+Using FixedPointList instead of While gives a neat way to visualize his \
+stagger.\
+\>", "Text",
+ CellChangeTimes->{{3.514101669269202*^9, 3.5141017382080956`*^9}, 
+   3.5141048388094435`*^9},ExpressionUUID->"c2ccbef5-9fc1-459d-b04e-\
+6353dd37850a"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ListPlot", "[", 
+  RowBox[{
+   RowBox[{"FixedPointList", "[", 
+    RowBox[{"step", ",", 
+     RowBox[{"{", 
+      RowBox[{"4", ",", "1"}], "}"}], ",", 
+     RowBox[{"SameTest", "\[Rule]", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"#1", "===", "#2"}], "&&", 
+         RowBox[{
+          RowBox[{"Head", "[", "#1", "]"}], "===", "Symbol"}]}], "&"}], 
+       ")"}]}]}], "]"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"Joined", "\[Rule]", "True"}], ",", 
+   RowBox[{"AspectRatio", "\[Rule]", 
+    RowBox[{"15", "/", "8"}]}], ",", 
+   RowBox[{"Frame", "->", "True"}], ",", 
+   RowBox[{"PlotRange", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"0", ",", "8"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"1", ",", "16"}], "}"}]}], "}"}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"Prolog", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"LightBlue", ",", 
+      RowBox[{"Rectangle", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"0", ",", "0"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"0.5", ",", "16"}], "}"}]}], "]"}], ",", 
+      RowBox[{"Rectangle", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"7.5", ",", "0"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"8", ",", "16"}], "}"}]}], "]"}]}], "}"}]}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.514096758811201*^9, 3.5140967928076005`*^9}, {
+  3.5140969431286306`*^9, 3.5140969620475225`*^9}, {3.5140980866909757`*^9, 
+  3.5140980878110876`*^9}, {3.5141017518964643`*^9, 3.514101926659939*^9}, {
+  3.5141019663099036`*^9, 3.514102019471219*^9}, {3.514102052024474*^9, 
+  3.5141020548477564`*^9}},
+ CellLabel->"In[37]:=",ExpressionUUID->"a924e926-2072-4849-82b8-c9088bf3bd1e"],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {{}, {}, 
+    {RGBColor[0.368417, 0.506779, 0.709798], PointSize[0.012833333333333334`],
+      AbsoluteThickness[1.6], LineBox[CompressedData["
+1:eJxTTMoPSmViYGAQBWIQDQECDhD6gz0qnwFKi6DxSZWH8TnQ1HPgkBcgII5u
+Di53SKCph/EF0PgiaHx0WgYHH0YrwPkAmbwPsg==
+      "]]}}, {{}, {}}},
+  AspectRatio->NCache[
+    Rational[15, 8], 1.875],
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{0, 1.},
+  DisplayFunction->Identity,
+  Frame->{{True, True}, {True, True}},
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  Method->{
+   "OptimizePlotMarkers" -> True, "OptimizePlotMarkers" -> True, 
+    "CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+        Identity[
+         Part[#, 1]], 
+        Identity[
+         Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+        Identity[
+         Part[#, 1]], 
+        Identity[
+         Part[#, 2]]}& )}},
+  PlotRange->{{0, 8}, {1, 16}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{0, 0}, {0, 0}},
+  Prolog->{
+    RGBColor[0.87, 0.94, 1], 
+    RectangleBox[{0, 0}, {0.5, 16}], 
+    RectangleBox[{7.5, 0}, {8, 16}]},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellLabel->"Out[37]=",ExpressionUUID->"526bd69d-538c-4f54-825c-76b96b1c6856"]
+}, Open  ]],
+
+Cell["\<\
+Now all we need to do is to run the simulation lots of times and count the \
+successes vs the fails\
+\>", "Text",
+ CellChangeTimes->{{3.514102076806952*^9, 
+  3.5141021013594074`*^9}},ExpressionUUID->"2ce9b276-9633-4384-baa9-\
+2cc8e9ee7406"],
+
+Cell[CellGroupData[{
+
+Cell["Tally[Table[simulation[{4,1}],{100000}]]", "Input",
+ CellChangeTimes->{{3.5140906072178183`*^9, 3.5140906226289797`*^9}, {
+   3.514090694341654*^9, 3.5140907009362907`*^9}, 3.5140907507121925`*^9, 
+   3.514097696413952*^9},
+ CellLabel->"In[55]:=",ExpressionUUID->"3b5054c8-7c35-414e-9ac4-5c7a18391ab6"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"Splash", ",", "84889"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"Ship", ",", "15111"}], "}"}]}], "}"}]], "Output",
+ CellLabel->"Out[55]=",ExpressionUUID->"7265663e-9af6-41b3-a0fb-0c963eeae7bf"]
+}, Open  ]],
+
+Cell[TextData[{
+ "This gives us about 18 % chance of success and took only 5 lines of code.\n\
+\nBecause of the discrete state nature of the problem there is another way to \
+look at it that efficiently gives us the probability not only of this \
+journey, but the chances of getting from any one place to any other place in \
+any specific number of steps, and that is to use Markov Chains. I didn\
+\[CloseCurlyQuote]t know anything about Markov Chains in 1988, so I have no \
+idea how much work it would have been in FORTRAN, but here is how you might \
+do it in ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ ".\n\nFirst we number all of the positions. In the 15\[Times]7 problem there \
+are 105 possible places to stand on the plank. I will designate the water as \
+position 106 and ship as 107 (or more generally water is width \[Times] \
+height+1 and ship as width \[Times] height+2). Now we construct a matrix to \
+represent all the transition probabilities. For example since the chances of \
+moving from position 1 to position 2 is 1/4 then ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["M", 
+     RowBox[{"1", ",", "2"}]], "=", 
+    FractionBox["1", "4"]}], TraditionalForm]],ExpressionUUID->
+  "9fcb43eb-c19f-4965-abb5-7c07d459e8f1"],
+ " etc. If you do this right, every row of the transition matrix sums to 1 \
+since there is 100% probability that you go to some state. This is the \
+trickiest part of the problem, but fortunately SparseArray has a rather neat \
+pattern specification that allows us to describe all of the values in a few \
+lines."
+}], "Text",
+ CellChangeTimes->{{3.5141021103123026`*^9, 3.514102593373604*^9}, {
+  3.5141026497202377`*^9, 3.514102680594325*^9}, {3.514104860708696*^9, 
+  3.514104872963397*^9}},ExpressionUUID->"5bbeb533-4724-4eed-949e-\
+b8ae4e8885cb"],
+
+Cell["\<\
+transitionProbabilityMatrix[width_,length_]:=
+\tWith[{splash=width \[Times]length+1,home=width \[Times]length+2},\
+\[IndentingNewLine]\t\tSparseArray[{\[IndentingNewLine]\t\t\t{splash,splash}\
+\[Rule]1,(*Wet sailor stays wet*)\[IndentingNewLine]\t\t\t\
+{home,home}\[Rule]1, (*Once home he stays safe*)\[IndentingNewLine]\t\t\t\
+{home|splash,_}\[Rule]0,(*No chance of reaching any other point from either \
+home or water*)\[IndentingNewLine]\t\t\t{x_,x_}\[Rule]1/4, (*Chance of \
+staying put*)\[IndentingNewLine]\t\t\t{pos_/;width\[Times](length-1)<pos\
+\[LessEqual]width\[Times]length,home}\[Rule]1/4,(*Chance of getting home from \
+final row*)\[IndentingNewLine]\t\t\t\
+{pos_/;(Mod[pos,width]\[Equal]1||Mod[pos,width]\[Equal]0),splash}\[Rule]1/4,(*\
+Chance of splash from edge of plank*)\[IndentingNewLine]\t\t\t\
+{pos1_,pos2_}/;(pos2-pos1===1&&Mod[pos1,width]=!=0)\[Rule]1/4,(*Chance of \
+right step when not on right edge of plank*)\[IndentingNewLine]\t\t\t\
+{pos1_,pos2_}/;(pos2-pos1===-1&&Mod[pos1,width]=!=1)\[Rule]1/4,(*Chance of \
+left step when not on left edge of plank*)\[IndentingNewLine]\t\t\t\
+{pos1_,pos2_}/;pos2-pos1===width\[Rule]1/4},(*Chance of stepping forward*)\
+\[IndentingNewLine]\t\t\t{width \[Times] length+2,width \[Times]length+2}
+\t\t]
+\t];\
+\>", "Input",
+ CellID->179,ExpressionUUID->"4e153662-1aeb-492c-99e9-77d4f1312e9f"],
+
+Cell["\<\
+Here for example is the transition matrix for a small 3\[Times]3 plank\
+\>", "Text",
+ CellChangeTimes->{{3.514102686136879*^9, 
+  3.51410270484975*^9}},ExpressionUUID->"0eddcf9e-ca01-41b4-a772-\
+1d4f1769ec43"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"transitionProbabilityMatrix", "[", 
+   RowBox[{"3", ",", "3"}], "]"}], "//", "MatrixForm"}]], "Input",
+ CellChangeTimes->{{3.514102710868352*^9, 3.5141027160048656`*^9}, 
+   3.5141029926755295`*^9},
+ CellLabel->"In[57]:=",ExpressionUUID->"4305a8ef-a203-40f8-931a-031434a73792"],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {
+      FractionBox["1", "4"], 
+      FractionBox["1", "4"], "0", 
+      FractionBox["1", "4"], "0", "0", "0", "0", "0", 
+      FractionBox["1", "4"], "0"},
+     {
+      FractionBox["1", "4"], 
+      FractionBox["1", "4"], 
+      FractionBox["1", "4"], "0", 
+      FractionBox["1", "4"], "0", "0", "0", "0", "0", "0"},
+     {"0", 
+      FractionBox["1", "4"], 
+      FractionBox["1", "4"], "0", "0", 
+      FractionBox["1", "4"], "0", "0", "0", 
+      FractionBox["1", "4"], "0"},
+     {"0", "0", "0", 
+      FractionBox["1", "4"], 
+      FractionBox["1", "4"], "0", 
+      FractionBox["1", "4"], "0", "0", 
+      FractionBox["1", "4"], "0"},
+     {"0", "0", "0", 
+      FractionBox["1", "4"], 
+      FractionBox["1", "4"], 
+      FractionBox["1", "4"], "0", 
+      FractionBox["1", "4"], "0", "0", "0"},
+     {"0", "0", "0", "0", 
+      FractionBox["1", "4"], 
+      FractionBox["1", "4"], "0", "0", 
+      FractionBox["1", "4"], 
+      FractionBox["1", "4"], "0"},
+     {"0", "0", "0", "0", "0", "0", 
+      FractionBox["1", "4"], 
+      FractionBox["1", "4"], "0", 
+      FractionBox["1", "4"], 
+      FractionBox["1", "4"]},
+     {"0", "0", "0", "0", "0", "0", 
+      FractionBox["1", "4"], 
+      FractionBox["1", "4"], 
+      FractionBox["1", "4"], "0", 
+      FractionBox["1", "4"]},
+     {"0", "0", "0", "0", "0", "0", "0", 
+      FractionBox["1", "4"], 
+      FractionBox["1", "4"], 
+      FractionBox["1", "4"], 
+      FractionBox["1", "4"]},
+     {"0", "0", "0", "0", "0", "0", "0", "0", "0", "1", "0"},
+     {"0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "1"}
+    },
+    GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Baseline}}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[
+   SparseArray[
+    Automatic, {11, 11}, 0, {
+     1, {{0, 4, 8, 12, 16, 20, 24, 28, 32, 36, 37, 38}, {{1}, {2}, {4}, {
+       10}, {1}, {5}, {2}, {3}, {2}, {3}, {6}, {10}, {4}, {7}, {5}, {10}, {
+       6}, {5}, {8}, {4}, {9}, {6}, {5}, {10}, {10}, {8}, {11}, {7}, {8}, {
+       9}, {7}, {11}, {11}, {8}, {10}, {9}, {10}, {11}}}, {
+      Rational[1, 4], Rational[1, 4], Rational[1, 4], Rational[1, 4], 
+       Rational[1, 4], Rational[1, 4], Rational[1, 4], Rational[1, 4], 
+       Rational[1, 4], Rational[1, 4], Rational[1, 4], Rational[1, 4], 
+       Rational[1, 4], Rational[1, 4], Rational[1, 4], Rational[1, 4], 
+       Rational[1, 4], Rational[1, 4], Rational[1, 4], Rational[1, 4], 
+       Rational[1, 4], Rational[1, 4], Rational[1, 4], Rational[1, 4], 
+       Rational[1, 4], Rational[1, 4], Rational[1, 4], Rational[1, 4], 
+       Rational[1, 4], Rational[1, 4], Rational[1, 4], Rational[1, 4], 
+       Rational[1, 4], Rational[1, 4], Rational[1, 4], Rational[1, 4], 1, 
+       1}}]]]]], "Output",
+ CellLabel->
+  "Out[57]//MatrixForm=",ExpressionUUID->"99cee563-83b8-427a-bc5c-\
+be18a050cb72"]
+}, Open  ]],
+
+Cell["And here is the transition matrix for our larger problem", "Text",
+ CellChangeTimes->{{3.51410285286455*^9, 
+  3.514102866456909*^9}},ExpressionUUID->"dab44872-58c5-48d3-81e1-\
+c3d5be64e961"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ArrayPlot", "[", 
+  RowBox[{"transitionProbabilityMatrix", "[", 
+   RowBox[{"7", ",", "15"}], "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.5140972346307783`*^9, 3.514097258080123*^9}, {
+   3.514097358507165*^9, 3.5140973742307367`*^9}, {3.514099149700266*^9, 
+   3.514099151002396*^9}, 3.514102995835846*^9},
+ CellLabel->"In[58]:=",ExpressionUUID->"79fa6ed1-4f12-4bdb-8f82-7994d188fb8d"],
+
+Cell[BoxData[
+ GraphicsBox[
+  RasterBox[SparseArray[Automatic, {107, 107}, 1., {1, {CompressedData["
+1:eJwl0BFwQgEABuC3QRAEQRB0tyAIgiAIgiAIggdBEDwIul27C4IgCIIgCIIg
+CIJgMBgEwWAwGAwGg8FgEASDwWC3793+u+/u1/+/im7CwUUQBNfBf+J+SYIk
+KdJkyJIjT4EiJcpUqFKjToMmLULadOgS0aPPgCEjxkyYMmPOgiUr1mzYsmPP
+LXfcc+DIA4888cwLr7zxzgefnDjzxTc//Mb7nZAgSYo0GbLkyFOgSIkyFarU
+qNOgSYuQNh26RPToE58/ZMSYCVNmzFmwZMWaDVt2/AHGQTAT
+      "], CompressedData["
+1:eJwNxNWWggAUQFHsVuxGscBO7O4O7EaM0cvD/NV857jWPgdnf2mWjyDIHw9B
+vhAO3twHPtz75/Xtu+fX43F/csDdH/Bhb+yNeV9/bsyLuV6u5+fl9Dhf7nA6
+w+HIHve3A3PY7ffb3XWz217W2/NmA+sTHFfL5YFeLZb0fr5b0PPFbDubbuZT
+WM9gvJpMxsvRcESPB4vRcDDvD/u9waw37UN3Ap3uuNPutFujdqs5bDUGzWa9
+0e81oF6DbrVa6dTK1Uq70iqXys1SsVQsNKBQL+byNcjnstVsrkJlsmUqTZUy
+6UyqmC5AKp9IQiKXjGdj8UQ8RkUz0UgsEk5HI5AKQyiYJIOhRJCMEyQRiAX8
+UcIXCfh9EPaHPODFPd4gTro9bpxwuTFXAPM7XT7MCeCwex12j81mxe02q9vi
+spitmMlsAbPTZDSAQ28w2vU2ncGq1etQnUWrNaMaDaAmlVENaqXKoFCq9HKd
+UqFVyGVSVCaXaaQgEYNapBJLxCKhUqgQiPhygVAm4PGBz5P+Aw7FYyE=
+      
+      "]}, CompressedData["
+1:eJxTTMoPSmVkYGBYBiKwghf2o/QoPUqP0qP0KD1Kj9Kj9Cg9So/SI50GAF/0
+5l0=
+     "]}], {{0, 0}, {107, 107}}, {0, 1}],
+  Frame->Automatic,
+  FrameLabel->{None, None},
+  FrameTicks->{{None, None}, {None, None}},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  Method->{
+   "DefaultBoundaryStyle" -> Automatic, 
+    "DefaultGraphicsInteraction" -> {
+     "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+      "Effects" -> {
+       "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+        "Droplines" -> {
+         "freeformCursorMode" -> True, 
+          "placement" -> {"x" -> "All", "y" -> "None"}}}}, "DefaultPlotStyle" -> 
+    Automatic}]], "Output",
+ CellLabel->"Out[58]=",ExpressionUUID->"6764b80c-46f8-441a-9a41-064f4054a85e"]
+}, Open  ]],
+
+Cell["\<\
+Here is the first row describing the possible transitions from position 1 \
+(the left hand edge of the start of the plank). It shows equal chances of \
+going to position 1 (standing still), 2 (stepping right), 8 (stepping \
+forward) and 106 (splash).\
+\>", "Text",
+ CellChangeTimes->{{3.5141027392211866`*^9, 3.514102835728837*^9}, {
+  3.51410287826609*^9, 
+  3.5141028896812315`*^9}},ExpressionUUID->"e42615b2-430b-4f03-8ac3-\
+4ba08042d4ce"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"transitionProbabilityMatrix", "[", 
+    RowBox[{"7", ",", "15"}], "]"}], "[", 
+   RowBox[{"[", "1", "]"}], "]"}], "//", "Normal"}]], "Input",
+ CellChangeTimes->{{3.514099105256822*^9, 3.514099107753072*^9}, 
+   3.5141029981490774`*^9},
+ CellLabel->"In[59]:=",ExpressionUUID->"6f903eb1-9a3a-4102-a4dc-d4213beb169d"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   FractionBox["1", "4"], ",", 
+   FractionBox["1", "4"], ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", 
+   ",", 
+   FractionBox["1", "4"], ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", 
+   ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", 
+   "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", 
+   ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", 
+   "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", 
+   ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", 
+   "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", 
+   ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", 
+   "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", 
+   ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", 
+   "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", 
+   ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", 
+   "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", 
+   ",", "0", ",", "0", ",", 
+   FractionBox["1", "4"], ",", "0"}], "}"}]], "Output",
+ CellLabel->"Out[59]=",ExpressionUUID->"0a938573-9915-4270-8fed-f51cf42310f2"]
+}, Open  ]],
+
+Cell[TextData[{
+ "The important thing about doing this is that the MatrixPower[Matrix,n] \
+represents the transition probability matrix for each start position to end \
+position after exactly n steps. So for example here are the probabilities for \
+where you will find the sailor who started in the middle of the plank after 6 \
+steps, showing a ",
+ Cell[BoxData[
+  FormBox[
+   FractionBox["23", "512"], TraditionalForm]],ExpressionUUID->
+  "42fbac85-6a37-4b55-8030-9aadc8905849"],
+ " chance (position -2) of being swimming already"
+}], "Text",
+ CellChangeTimes->{{3.5141029099322567`*^9, 3.5141029653317957`*^9}, {
+  3.514103008007063*^9, 3.514103143845645*^9}, {3.514103470583316*^9, 
+  3.514103483547612*^9}},ExpressionUUID->"c555f0b6-7c4d-45bf-80c6-\
+693b382d1931"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"MatrixPower", "[", 
+    RowBox[{
+     RowBox[{"transitionProbabilityMatrix", "[", 
+      RowBox[{"7", ",", "15"}], "]"}], ",", "6"}], "]"}], "[", 
+   RowBox[{"[", "4", "]"}], "]"}], "//", "Normal"}]], "Input",
+ CellChangeTimes->{{3.51409179439204*^9, 3.514091813580877*^9}, {
+   3.5140918459309573`*^9, 3.514091929493313*^9}, {3.5140919665040135`*^9, 
+   3.5140919752638893`*^9}, {3.514095169233259*^9, 3.514095176413977*^9}, 
+   3.514096243807706*^9, 3.5140974025795717`*^9, {3.514103089023164*^9, 
+   3.514103116719933*^9}, 3.514103463551613*^9, 3.514103702931548*^9},
+ CellLabel->"In[60]:=",ExpressionUUID->"4c9a2eb0-f9aa-4c2e-91f0-9b6fc92569ff"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   FractionBox["11", "1024"], ",", 
+   FractionBox["89", "4096"], ",", 
+   FractionBox["63", "2048"], ",", 
+   FractionBox["141", "4096"], ",", 
+   FractionBox["63", "2048"], ",", 
+   FractionBox["89", "4096"], ",", 
+   FractionBox["11", "1024"], ",", 
+   FractionBox["21", "1024"], ",", 
+   FractionBox["45", "1024"], ",", 
+   FractionBox["135", "2048"], ",", 
+   FractionBox["153", "2048"], ",", 
+   FractionBox["135", "2048"], ",", 
+   FractionBox["45", "1024"], ",", 
+   FractionBox["21", "1024"], ",", 
+   FractionBox["15", "1024"], ",", 
+   FractionBox["75", "2048"], ",", 
+   FractionBox["15", "256"], ",", 
+   FractionBox["285", "4096"], ",", 
+   FractionBox["15", "256"], ",", 
+   FractionBox["75", "2048"], ",", 
+   FractionBox["15", "1024"], ",", 
+   FractionBox["5", "1024"], ",", 
+   FractionBox["15", "1024"], ",", 
+   FractionBox["15", "512"], ",", 
+   FractionBox["35", "1024"], ",", 
+   FractionBox["15", "512"], ",", 
+   FractionBox["15", "1024"], ",", 
+   FractionBox["5", "1024"], ",", "0", ",", 
+   FractionBox["15", "4096"], ",", 
+   FractionBox["15", "2048"], ",", 
+   FractionBox["45", "4096"], ",", 
+   FractionBox["15", "2048"], ",", 
+   FractionBox["15", "4096"], ",", "0", ",", "0", ",", "0", ",", 
+   FractionBox["3", "2048"], ",", 
+   FractionBox["3", "2048"], ",", 
+   FractionBox["3", "2048"], ",", "0", ",", "0", ",", "0", ",", "0", ",", "0",
+    ",", 
+   FractionBox["1", "4096"], ",", "0", ",", "0", ",", "0", ",", "0", ",", "0",
+    ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",",
+    "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0",
+    ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",",
+    "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0",
+    ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",",
+    "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0",
+    ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",",
+    "0", ",", "0", ",", 
+   FractionBox["23", "512"], ",", "0"}], "}"}]], "Output",
+ CellLabel->"Out[60]=",ExpressionUUID->"e0335128-c5c2-4645-a1b2-8601256799c2"]
+}, Open  ]],
+
+Cell["\<\
+This manipulate lets you visualize his probably (still on the plank) \
+position, along with numeric values of his probability of reaching each \
+destination.\
+\>", "Text",
+ CellChangeTimes->{{3.5141032431285725`*^9, 
+  3.514103318692128*^9}},ExpressionUUID->"eecb991b-a3f3-4a1a-908e-\
+037f686ff080"],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Manipulate[Block[{soln=MatrixPower[N@transitionProbabilityMatrix[7,15],steps][\
+[start]]},\[IndentingNewLine]MatrixPlot[Partition[soln,7],PlotLabel\[Rule]\
+Grid[{
+{\"Drowned: \",soln[[-2]]},\[IndentingNewLine]{\"Home: \",soln[[-1]]},\
+\[IndentingNewLine]{\"Walking: \
+\",Total[soln[[;;-3]]]}}]]],\[IndentingNewLine]{{start,4},1,7,1,Appearance\
+\[Rule]\"Labeled\"},\[IndentingNewLine]{steps,1,100,1,Appearance\[Rule]\"\
+Labeled\"},SaveDefinitions\[Rule]True]\
+\>", "Input",
+ CellChangeTimes->{{3.514095503684701*^9, 3.5140955055418863`*^9}, {
+   3.514095542059538*^9, 3.5140955579561276`*^9}, {3.514095690284359*^9, 
+   3.5140957006573963`*^9}, {3.514095752429573*^9, 3.514095791517481*^9}, {
+   3.5140958296002893`*^9, 3.514095829728302*^9}, {3.514095870298359*^9, 
+   3.5140959584771757`*^9}, {3.5140960226955967`*^9, 
+   3.5140961056948957`*^9}, {3.5140963969870224`*^9, 3.514096397215045*^9}, {
+   3.5140966020215235`*^9, 3.5140966163089523`*^9}, {3.5140966544007607`*^9, 
+   3.5140966782901497`*^9}, 3.5140974161549287`*^9, {3.514097752760586*^9, 
+   3.514097760007311*^9}, {3.5140977913384438`*^9, 3.5140978039387035`*^9}, {
+   3.514098269631268*^9, 3.514098300463351*^9}, {3.514098660863387*^9, 
+   3.5140986841597166`*^9}, {3.514098764539754*^9, 3.51409880360566*^9}, {
+   3.5141031587331343`*^9, 3.5141032114454045`*^9}, {3.5141033223944983`*^9, 
+   3.514103343444603*^9}, {3.5141034222724853`*^9, 3.5141034367929373`*^9}, 
+   3.5141037058028355`*^9},
+ CellLabel->"In[61]:=",ExpressionUUID->"7a113fb3-fd2e-489c-9fb6-ff2ec21c9508"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`start$$ = 1, $CellContext`steps$$ = 1, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`start$$], 4}, 1, 7, 1}, {
+      Hold[$CellContext`steps$$], 1, 100, 1}}, Typeset`size$$ = {
+    196., {214., 218.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = False}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`start$$ = 4, $CellContext`steps$$ = 1}, 
+      "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Block[{$CellContext`soln = Part[
+           MatrixPower[
+            N[
+             $CellContext`transitionProbabilityMatrix[
+             7, 15]], $CellContext`steps$$], $CellContext`start$$]}, 
+        MatrixPlot[
+         Partition[$CellContext`soln, 7], PlotLabel -> Grid[{{"Drowned: ", 
+             Part[$CellContext`soln, -2]}, {"Home: ", 
+             Part[$CellContext`soln, -1]}, {"Walking: ", 
+             Total[
+              Part[$CellContext`soln, 
+               Span[1, -3]]]}}]]], 
+      "Specifications" :> {{{$CellContext`start$$, 4}, 1, 7, 1, Appearance -> 
+         "Labeled"}, {$CellContext`steps$$, 1, 100, 1, Appearance -> 
+         "Labeled"}}, "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{302., {273., 278.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({$CellContext`transitionProbabilityMatrix[
+         Pattern[$CellContext`width, 
+          Blank[]], 
+         Pattern[$CellContext`length, 
+          Blank[]]] := 
+       With[{$CellContext`splash = $CellContext`width $CellContext`length + 
+           1, $CellContext`home = $CellContext`width $CellContext`length + 2}, 
+         SparseArray[{{$CellContext`splash, $CellContext`splash} -> 
+           1, {$CellContext`home, $CellContext`home} -> 1, {
+             Alternatives[$CellContext`home, $CellContext`splash], 
+             Blank[]} -> 0, {
+             Pattern[$CellContext`x, 
+              Blank[]], 
+             Pattern[$CellContext`x, 
+              Blank[]]} -> 1/4, {
+             Condition[
+              Pattern[$CellContext`pos, 
+               Blank[]], 
+              
+              Inequality[$CellContext`width ($CellContext`length - 1), 
+               Less, $CellContext`pos, 
+               LessEqual, $CellContext`width $CellContext`length]], \
+$CellContext`home} -> 1/4, {
+             Condition[
+              Pattern[$CellContext`pos, 
+               Blank[]], 
+              Or[
+              Mod[$CellContext`pos, $CellContext`width] == 1, 
+               Mod[$CellContext`pos, $CellContext`width] == 
+               0]], $CellContext`splash} -> 1/4, Condition[{
+              Pattern[$CellContext`pos1, 
+               Blank[]], 
+              Pattern[$CellContext`pos2, 
+               Blank[]]}, 
+             
+             And[$CellContext`pos2 - $CellContext`pos1 === 1, 
+              Mod[$CellContext`pos1, $CellContext`width] =!= 0]] -> 1/4, 
+           Condition[{
+              Pattern[$CellContext`pos1, 
+               Blank[]], 
+              Pattern[$CellContext`pos2, 
+               Blank[]]}, 
+             
+             And[$CellContext`pos2 - $CellContext`pos1 === -1, 
+              Mod[$CellContext`pos1, $CellContext`width] =!= 1]] -> 1/4, 
+           Condition[{
+              Pattern[$CellContext`pos1, 
+               Blank[]], 
+              Pattern[$CellContext`pos2, 
+               
+               Blank[]]}, $CellContext`pos2 - $CellContext`pos1 === \
+$CellContext`width] -> 1/4}, {$CellContext`width $CellContext`length + 
+           2, $CellContext`width $CellContext`length + 2}]]}; 
+     Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellLabel->"Out[61]=",ExpressionUUID->"cd597798-6f38-433d-8343-fc32bf5576fa"]
+}, Open  ]],
+
+Cell[TextData[{
+ "So now if we find ",
+ Cell[BoxData[
+  RowBox[{
+   UnderscriptBox["lim", 
+    RowBox[{" ", 
+     RowBox[{"x", "\[Rule]", "\[Infinity]"}]}]], 
+   SuperscriptBox["M", "x"]}]],
+  CellChangeTimes->{{3.514105697417626*^9, 3.5141057098053756`*^9}, {
+   3.514105745049616*^9, 3.5141057620242653`*^9}},ExpressionUUID->
+  "894e3b38-e717-4eaf-8e9b-f5484a1dfbd2"],
+ " as x\[Rule]\[Infinity] then we have the probability that he will make it \
+at some point. I am just going to assume that if he hasn\[CloseCurlyQuote]t \
+made it in 1,000 steps then he will probably fall asleep on the plank anyway! \
+So here are the probabilities that he is swimming or home after 1000 \
+steps..."
+}], "Text",
+ CellChangeTimes->{{3.5141056158437185`*^9, 3.5141056842809944`*^9}, {
+  3.5141057266396103`*^9, 3.514105848473285*^9}, {3.5141058914715705`*^9, 
+  3.514105924094725*^9}},ExpressionUUID->"fba3ed6c-7a06-402b-9397-\
+e18bb4392303"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"MatrixPower", "[", 
+    RowBox[{
+     RowBox[{"N", "@", 
+      RowBox[{"transitionProbabilityMatrix", "[", 
+       RowBox[{"7", ",", "15"}], "]"}]}], ",", "1000"}], "]"}], "[", 
+   RowBox[{"[", 
+    RowBox[{"4", ",", 
+     RowBox[{
+      RowBox[{"-", "2"}], ";;"}]}], "]"}], "]"}], "//", "Normal"}]], "Input",
+ CellChangeTimes->{3.5141058539026766`*^9},
+ CellLabel->"In[62]:=",ExpressionUUID->"cfa0ce98-a41a-4d71-b5ea-036d2be53d30"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"0.8499892225985929`", ",", "0.15001077740140706`"}], 
+  "}"}]], "Output",
+ CellLabel->"Out[62]=",ExpressionUUID->"45136287-2ded-4a4a-bd1f-f04c835cca5d"]
+}, Open  ]],
+
+Cell[TextData[{
+ "Modelling drunken swimming is a harder problem which I may revisit when ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " can do CFD."
+}], "Text",
+ CellChangeTimes->{{3.514105995563509*^9, 
+  3.5141060809473963`*^9}},ExpressionUUID->"495d09d3-8fb1-42d7-a2f5-\
+7ebe05c245cb"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{927, 847},
+WindowMargins->{{231, Automatic}, {Automatic, 0}},
+PrivateNotebookOptions->{"VersionedStylesheet"->{"Default.nb"[8.] -> False}},
+ShowSelection->True,
+FrontEndVersion->"13.0 for Mac OS X ARM (64-bit) (January 26, 2022)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"42c31ae1-5266-48a0-9552-7ad71c3e77d6"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 237, 4, 98, "Title",ExpressionUUID->"258f8450-b8f9-4b11-99d4-4e5df88f93ed"],
+Cell[CellGroupData[{
+Cell[842, 30, 98, 1, 69, "Chapter",ExpressionUUID->"78a13e36-6dca-49a7-9b95-87f8bc1183e9",
+ CellID->71],
+Cell[943, 33, 965, 17, 150, "Text",ExpressionUUID->"b8af7b0c-ad78-49bd-8003-ab6c8bc091c2"],
+Cell[1911, 52, 62063, 823, 449, "Output",ExpressionUUID->"f0ba988a-7ca8-48b6-b435-f185c63aafed"],
+Cell[63977, 877, 276, 4, 58, "Text",ExpressionUUID->"a2b59bc0-6b09-4c85-bd4a-d0490d965760"],
+Cell[64256, 883, 1000, 19, 32, "Input",ExpressionUUID->"fa5cf092-b9ad-43ac-a76a-f99a1ca731ea"],
+Cell[65259, 904, 259, 6, 35, "Text",ExpressionUUID->"5e448fbf-fd62-4937-b3af-26a9ce67d784"],
+Cell[65521, 912, 1090, 21, 32, "Input",ExpressionUUID->"74993fb5-924b-4121-a186-7553b668bf35"],
+Cell[66614, 935, 219, 5, 35, "Text",ExpressionUUID->"6f825157-9b4b-495b-a939-309a3f90d4fb"],
+Cell[66836, 942, 650, 20, 30, "Input",ExpressionUUID->"f3f68338-e5db-4300-ad99-a3008904d65d"],
+Cell[67489, 964, 372, 7, 58, "Text",ExpressionUUID->"bb376dd0-0e9b-4795-b419-bedec40e3bcc"],
+Cell[67864, 973, 640, 17, 52, "Input",ExpressionUUID->"d44aa427-af2b-423c-ae98-a753d3d81de2"],
+Cell[68507, 992, 425, 8, 81, "Text",ExpressionUUID->"4fa0eaf0-e872-4e2f-8fe8-23cd9b718fff"],
+Cell[CellGroupData[{
+Cell[68957, 1004, 257, 5, 30, "Input",ExpressionUUID->"a03bb64b-fb4a-4471-8dbe-f38bcdbbc1d0"],
+Cell[69217, 1011, 112, 1, 34, "Output",ExpressionUUID->"af06949c-db79-4789-b5b6-c8c839a74b38"]
+}, Open  ]],
+Cell[69344, 1015, 259, 6, 35, "Text",ExpressionUUID->"c2ccbef5-9fc1-459d-b04e-6353dd37850a"],
+Cell[CellGroupData[{
+Cell[69628, 1025, 1765, 47, 73, "Input",ExpressionUUID->"a924e926-2072-4849-82b8-c9088bf3bd1e"],
+Cell[71396, 1074, 1359, 38, 449, "Output",ExpressionUUID->"526bd69d-538c-4f54-825c-76b96b1c6856"]
+}, Open  ]],
+Cell[72770, 1115, 251, 6, 35, "Text",ExpressionUUID->"2ce9b276-9633-4384-baa9-2cc8e9ee7406"],
+Cell[CellGroupData[{
+Cell[73046, 1125, 308, 4, 30, "Input",ExpressionUUID->"3b5054c8-7c35-414e-9ac4-5c7a18391ab6"],
+Cell[73357, 1131, 266, 7, 34, "Output",ExpressionUUID->"7265663e-9af6-41b3-a0fb-0c963eeae7bf"]
+}, Open  ]],
+Cell[73638, 1141, 1813, 33, 361, "Text",ExpressionUUID->"5bbeb533-4724-4eed-949e-b8ae4e8885cb"],
+Cell[75454, 1176, 1362, 22, 282, "Input",ExpressionUUID->"4e153662-1aeb-492c-99e9-77d4f1312e9f",
+ CellID->179],
+Cell[76819, 1200, 219, 5, 35, "Text",ExpressionUUID->"0eddcf9e-ca01-41b4-a772-1d4f1769ec43"],
+Cell[CellGroupData[{
+Cell[77063, 1209, 312, 6, 30, "Input",ExpressionUUID->"4305a8ef-a203-40f8-931a-031434a73792"],
+Cell[77378, 1217, 3110, 79, 284, "Output",ExpressionUUID->"99cee563-83b8-427a-bc5c-be18a050cb72"]
+}, Open  ]],
+Cell[80503, 1299, 197, 3, 35, "Text",ExpressionUUID->"dab44872-58c5-48d3-81e1-c3d5be64e961"],
+Cell[CellGroupData[{
+Cell[80725, 1306, 412, 7, 30, "Input",ExpressionUUID->"79fa6ed1-4f12-4bdb-8f82-7994d188fb8d"],
+Cell[81140, 1315, 1765, 38, 376, "Output",ExpressionUUID->"6764b80c-46f8-441a-9a41-064f4054a85e"]
+}, Open  ]],
+Cell[82920, 1356, 452, 9, 81, "Text",ExpressionUUID->"e42615b2-430b-4f03-8ac3-4ba08042d4ce"],
+Cell[CellGroupData[{
+Cell[83397, 1369, 361, 8, 30, "Input",ExpressionUUID->"6f903eb1-9a3a-4102-a4dc-d4213beb169d"],
+Cell[83761, 1379, 1346, 21, 50, "Output",ExpressionUUID->"0a938573-9915-4270-8fed-f51cf42310f2"]
+}, Open  ]],
+Cell[85122, 1403, 769, 15, 39, "Text",ExpressionUUID->"c555f0b6-7c4d-45bf-80c6-693b382d1931"],
+Cell[CellGroupData[{
+Cell[85916, 1422, 696, 13, 30, "Input",ExpressionUUID->"4c9a2eb0-f9aa-4c2e-91f0-9b6fc92569ff"],
+Cell[86615, 1437, 2220, 50, 90, "Output",ExpressionUUID->"e0335128-c5c2-4645-a1b2-8601256799c2"]
+}, Open  ]],
+Cell[88850, 1490, 309, 7, 35, "Text",ExpressionUUID->"eecb991b-a3f3-4a1a-908e-037f686ff080"],
+Cell[CellGroupData[{
+Cell[89184, 1501, 1548, 24, 138, "Input",ExpressionUUID->"7a113fb3-fd2e-489c-9fb6-ff2ec21c9508"],
+Cell[90735, 1527, 4519, 99, 571, "Output",ExpressionUUID->"cd597798-6f38-433d-8343-fc32bf5576fa"]
+}, Open  ]],
+Cell[95269, 1629, 928, 20, 35, "Text",ExpressionUUID->"fba3ed6c-7a06-402b-9397-e18bb4392303"],
+Cell[CellGroupData[{
+Cell[96222, 1653, 479, 13, 30, "Input",ExpressionUUID->"cfa0ce98-a41a-4d71-b5ea-036d2be53d30"],
+Cell[96704, 1668, 192, 4, 34, "Output",ExpressionUUID->"45136287-2ded-4a4a-bd1f-f04c835cca5d"]
+}, Open  ]],
+Cell[96911, 1675, 297, 8, 35, "Text",ExpressionUUID->"495d09d3-8fb1-42d7-a2f5-7ebe05c245cb"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
